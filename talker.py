@@ -5,6 +5,7 @@ import spacy
 from std_msgs.msg import String
 import speech_recognition as sr
 
+
 # SENTENCES = ['can you bring me the cup',
 #              'can you pass me the book',
 #              'I need that mouse',
@@ -49,7 +50,7 @@ def getTarget():
     return target
 
 def talker():
-    pub = rospy.Publisher('chatter', String, queue_size=10)
+    pub = rospy.Publisher('target', String, queue_size=10)
     rospy.init_node('talker', anonymous=True)
     rate = rospy.Rate(10)
     target = ''
