@@ -1,39 +1,12 @@
 #!/usr/bin/env python
 
-# Copyright (c) 2011, Willow Garage, Inc.
-# All rights reserved.
-#
-# Redistribution and use in source and binary forms, with or without
-# modification, are permitted provided that the following conditions are met:
-#
-#    * Redistributions of source code must retain the above copyright
-#      notice, this list of conditions and the following disclaimer.
-#    * Redistributions in binary form must reproduce the above copyright
-#      notice, this list of conditions and the following disclaimer in the
-#      documentation and/or other materials provided with the distribution.
-#    * Neither the name of the Willow Garage, Inc. nor the names of its
-#      contributors may be used to endorse or promote products derived from
-#       this software without specific prior written permission.
-#
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-# ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
-# LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-# INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-# ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-# POSSIBILITY OF SUCH DAMAGE.
-
 import rospy
 from geometry_msgs.msg import Twist
 import sys, select, os
-if os.name == 'nt':
-  import msvcrt, time
-else:
-  import tty, termios
+import tty, termios
+import spacy
+import speech_recognition as sr
+from darknet_ros_msgs.msg import BoundingBoxes
 
 BURGER_MAX_LIN_VEL = 0.22
 BURGER_MAX_ANG_VEL = 2.84
@@ -42,20 +15,18 @@ WAFFLE_MAX_LIN_VEL = 0.26
 WAFFLE_MAX_ANG_VEL = 1.82
 
 LIN_VEL_STEP_SIZE = 0.01
-ANG_VEL_STEP_SIZE = 0.1
+ANG_VEL_STEP_SIZE = 0.05
+
+found = False
+searching = False
+    
 
 msg = """
-Control Your TurtleBot3!
+Welcome to the Vafor!
 ---------------------------
-Moving around:
-        w
-   a    s    d
-        x
-
-w/x : increase/decrease linear velocity (Burger : ~ 0.22, Waffle and Waffle Pi : ~ 0.26)
-a/d : increase/decrease angular velocity (Burger : ~ 2.84, Waffle and Waffle Pi : ~ 1.82)
-
-space key, s : force stop
+Press 'y' to make an inquiry
+Press 'u' for home position
+Press 'Space' to close grip
 
 CTRL-C to quit
 """
@@ -67,17 +38,6 @@ Communications Failed
 from std_msgs.msg import Float64MultiArray
 
 def getKey():
-    if os.name == 'nt':
-        timeout = 0.1
-        startTime = time.time()
-        while(1):
-            if msvcrt.kbhit():
-                if sys.version_info[0] >= 3:
-                    return msvcrt.getch().decode()
-                else:
-                    return msvcrt.getch()
-            elif time.time() - startTime > timeout:
-                return ''
 
     tty.setraw(sys.stdin.fileno())
     rlist, _, _ = select.select([sys.stdin], [], [], 0.1)
@@ -92,11 +52,9 @@ def getKey():
 def vels(target_linear_vel, target_angular_vel):
     return "currently:\tlinear vel %s\t angular vel %s " % (target_linear_vel,target_angular_vel)
 
-
 def arms(angle1, angle2, angle3, angle4):
     tmp = "\n angle1 : %s \n angle2 : %s \n angle3 : %s \n angle4 : %s \n\n" % (angle1, angle2, angle3, angle4)
     return tmp
-
 
 def makeSimpleProfile(output, input, slop):
     if input > output:
@@ -138,16 +96,71 @@ def checkAngularLimitVelocity(vel):
 
     return vel
 
-if __name__=="__main__":
-    if os.name != 'nt':
-        settings = termios.tcgetattr(sys.stdin)
+#function to get the coco.names file
+def get_coco_names():
+    names = {}
+    with open("coco.names", 'r') as f:
+        for id, name in enumerate(f):
+            names[id] = name[0:-1]
+    return names
 
-    rospy.init_node('turtlebot3_teleop')
+def getTarget():
+    sentence = ""
+    target = ""
+    while target == "":
+        try:
+            with sr.Microphone() as source2:
+                r.adjust_for_ambient_noise(source2, duration=0.5)
+                
+                audio2 = r.listen(source2)
+                
+                sentence = r.recognize_google(audio2)
+                sentence = sentence.lower()
+
+                print("Did you say ",sentence)
+                
+        except sr.RequestError as e:
+            print("Could not request results; {0}".format(e))
+            
+        except sr.UnknownValueError:
+            print("unknown error occurred")
+            
+        doc = nlp(sentence)
+
+        for token in doc:
+            if token.dep_ == 'dobj' and token.text in names.values():
+                target = token.text
+                
+    return target
+
+def callback(data):
+    global found
+    global searching
+    
+    for box in data.bounding_boxes:
+        if box.Class == target and box.xmin < 640 and box.xmax > 640:
+            print("Found ", box.Class, '\n')
+            found = True
+            sub.unregister()
+    
+
+if __name__=="__main__":
+    settings = termios.tcgetattr(sys.stdin)
+
+    rospy.init_node('vafor')
     vel_pub = rospy.Publisher('cmd_vel', Twist, queue_size=10)
     arm_pub = rospy.Publisher('joint_trajectory_point', Float64MultiArray, queue_size=10)
     grib_pub = rospy.Publisher('gripper_position', Float64MultiArray, queue_size=10)
 
     turtlebot3_model = rospy.get_param("model", "burger")
+
+    #initialize voice recognizer and language parser
+    r = sr.Recognizer()
+    nlp = spacy.load('en_core_web_lg')
+
+    #initialize coco.names
+    names = get_coco_names()
+    target = ""
 
     status = 0
     target_linear_vel   = 0.0
@@ -155,7 +168,9 @@ if __name__=="__main__":
     control_linear_vel  = 0.0
     control_angular_vel = 0.0
 
-    angle1, angle2, angle3, angle4 = 0., 0., 0., 0.
+    default_angles = 0.0, -1.2, 0.78, 0.51
+    reach_angles = 0.0, 1.53, -1.44, -0.09
+    angle1, angle2, angle3, angle4 = default_angles
 
     grib_angle = 0.025
 
@@ -163,7 +178,40 @@ if __name__=="__main__":
         print(msg)
         while not rospy.is_shutdown():
             key = getKey()
-            if key == 'w' :
+            if searching and not found:
+                target_angular_vel = ANG_VEL_STEP_SIZE
+                target_linear_vel   = 0.0
+            elif searching and found:
+                target_linear_vel   = 0.0
+                control_linear_vel  = 0.0
+                target_angular_vel  = 0.0
+                control_angular_vel = 0.0
+                searching = False
+                
+            if key == 'y':
+                print("How can I help you?")
+                target = getTarget()
+                print("Target is ",target)
+                searching = True
+                found = False
+                sub = rospy.Subscriber("/darknet_ros/bounding_boxes", BoundingBoxes, callback)
+                
+                
+            elif key == 'u' :
+                print("Stoppping")
+                target_linear_vel   = 0.0
+                control_linear_vel  = 0.0
+                target_angular_vel  = 0.0
+                control_angular_vel = 0.0
+                angle1, angle2, angle3, angle4 = default_angles
+                print(vels(target_linear_vel, target_angular_vel))
+            
+            elif key == 'r' :
+                print("Reaching")
+                angle1, angle2, angle3, angle4 = reach_angles
+                print(arms(angle1, angle2, angle3, angle4))
+
+            elif key == 'w' :
                 target_linear_vel = checkLinearLimitVelocity(target_linear_vel + LIN_VEL_STEP_SIZE)
                 status = status + 1
                 print(vels(target_linear_vel,target_angular_vel))
@@ -184,30 +232,30 @@ if __name__=="__main__":
                 control_linear_vel  = 0.0
                 target_angular_vel  = 0.0
                 control_angular_vel = 0.0
-                angle1 = angle2 = angle3 = angle4 = 0.
+                angle1, angle2, angle3, angle4 = default_angles
                 print(vels(target_linear_vel, target_angular_vel))
-            elif key == '1':
+            elif key == '0':
                 angle1 += 0.03
                 print(arms(angle1, angle2, angle3, angle4))
-            elif key == '2':
+            elif key == '1':
                 angle2 += 0.03
                 print(arms(angle1, angle2, angle3, angle4))
-            elif key == '3':
+            elif key == '4':
                 angle3 += 0.03
                 print(arms(angle1, angle2, angle3, angle4))
-            elif key == '4':
-                angle4 -= 0.03
-            elif key == '5':
+            elif key == '7':
+                angle4 += 0.03
+            elif key == '.':
                 angle1 -= 0.03
                 print(arms(angle1, angle2, angle3, angle4))
-            elif key == '6':
+            elif key == '2':
                 angle2 -= 0.03
                 print(arms(angle1, angle2, angle3, angle4))
-            elif key == '7':
+            elif key == '5':
                 angle3 -= 0.03
                 print(arms(angle1, angle2, angle3, angle4))
             elif key == '8':
-                angle4 += 0.03
+                angle4 -= 0.03
                 print(arms(angle1, angle2, angle3, angle4))
             elif key == ' ':
                 if grib_angle == 0.025:
@@ -241,10 +289,11 @@ if __name__=="__main__":
             grib_msg.data = [grib_angle]
             grib_pub.publish(grib_msg)
 
+
             
 
     except:
-        print(e)
+        print("Some error:", e)
 
     finally:
         twist = Twist()
@@ -253,13 +302,12 @@ if __name__=="__main__":
         vel_pub.publish(twist)
 
         arm_msg = Float64MultiArray()
-        arm_msg.data = [-1, 0, 0, 0, 0]
+        arm_msg.data = [-1, 0.0, -1.2, 0.78, 0.51]
         arm_pub.publish(arm_msg)
 
         grib_msg = Float64MultiArray()
-        grib_msg.data = [-0.1]
+        grib_msg.data = [0.025]
         grib_pub.publish(grib_msg)
 
 
-    if os.name != 'nt':
-        termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
+    termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
