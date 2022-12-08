@@ -4,9 +4,24 @@ import rospy
 from geometry_msgs.msg import Twist
 import sys, select, os
 import tty, termios
+from time import sleep
 import spacy
 import speech_recognition as sr
 from darknet_ros_msgs.msg import BoundingBoxes
+from std_msgs.msg import Float64MultiArray
+from enum import Enum
+from sensor_msgs.msg import LaserScan
+
+class Mode(Enum):
+    IDLE = 0
+    SEARCHING = 1
+    FOUND = 2
+    APPROACHING = 3
+    REACHING = 4
+    REACHING2 = 5
+    GRABBING = 6
+    HOLDUP = 7
+    ADJUSTING = 8
 
 BURGER_MAX_LIN_VEL = 0.22
 BURGER_MAX_ANG_VEL = 2.84
@@ -15,11 +30,11 @@ WAFFLE_MAX_LIN_VEL = 0.26
 WAFFLE_MAX_ANG_VEL = 1.82
 
 LIN_VEL_STEP_SIZE = 0.01
-ANG_VEL_STEP_SIZE = 0.05
+ANG_VEL_STEP_SIZE = 0.1
 
-found = False
-searching = False
-    
+TIME_TO_MOVE = 3
+
+# Mode = Mode.IDLE
 
 msg = """
 Welcome to the Vafor!
@@ -34,8 +49,6 @@ CTRL-C to quit
 e = """
 Communications Failed
 """
-
-from std_msgs.msg import Float64MultiArray
 
 def getKey():
 
@@ -133,16 +146,42 @@ def getTarget():
                 
     return target
 
-def callback(data):
-    global found
-    global searching
+def detector(data):
+    global Mode
+    global sub_laser
+    global sub_adjust
     
     for box in data.bounding_boxes:
-        if box.Class == target and box.xmin < 640 and box.xmax > 640:
-            print("Found ", box.Class, '\n')
-            found = True
+        if box.Class == target:
+            print("Found ", box.Class)
+            sub_adjust = rospy.Subscriber('/darknet_ros/bounding_boxes', BoundingBoxes, adjust)
+            sub_laser = rospy.Subscriber('/scan', LaserScan, laser)
+            Mode = Mode.APPROACHING
             sub.unregister()
+
+def laser(data):
+    global Mode
+    global direction
     
+    if data.ranges[0] < 0.3:
+        Mode = Mode.REACHING
+        sub_laser.unregister()
+        sub_adjust.unregister()
+
+def adjust(data):
+    global Mode
+    global direction
+    global target_angular_vel
+    for bb in data.bounding_boxes:
+        if bb.Class != target:
+            continue
+        center = (bb.xmin + bb.xmax) / 2
+        if center > 635 and center < 645:
+            target_angular_vel = 0
+        elif center < 635:
+            target_angular_vel = 0.02
+        elif center > 645:
+            target_angular_vel = -0.02
 
 if __name__=="__main__":
     settings = termios.tcgetattr(sys.stdin)
@@ -162,6 +201,7 @@ if __name__=="__main__":
     names = get_coco_names()
     target = ""
 
+    direction = 0
     status = 0
     target_linear_vel   = 0.0
     target_angular_vel  = 0.0
@@ -169,8 +209,13 @@ if __name__=="__main__":
     control_angular_vel = 0.0
 
     default_angles = 0.0, -1.2, 0.78, 0.51
-    reach_angles = 0.0, 1.53, -1.44, -0.09
+    reach_angles = 0.0, 1.08, -0.33, -0.2
+    reach_angles2 = 0.0, 1.08, -0.6, -0.42
+    holdup_angles = 0.0, 0.0, -1.6, 0.0
     angle1, angle2, angle3, angle4 = default_angles
+    
+
+    Mode = Mode.IDLE
 
     grib_angle = 0.025
 
@@ -178,33 +223,53 @@ if __name__=="__main__":
         print(msg)
         while not rospy.is_shutdown():
             key = getKey()
-            if searching and not found:
-                target_angular_vel = ANG_VEL_STEP_SIZE
-                target_linear_vel   = 0.0
-            elif searching and found:
+            if Mode == Mode.IDLE:
                 target_linear_vel   = 0.0
                 control_linear_vel  = 0.0
                 target_angular_vel  = 0.0
                 control_angular_vel = 0.0
-                searching = False
+                # angle1, angle2, angle3, angle4 = default_angles
+            elif Mode == Mode.SEARCHING:
+                target_angular_vel = ANG_VEL_STEP_SIZE
+                target_linear_vel   = 0.0
+                angle1, angle2, angle3, angle4 = default_angles
+                grib_angle = 0.025
+
+            elif Mode == Mode.APPROACHING:
+                target_linear_vel   = LIN_VEL_STEP_SIZE
                 
+            elif Mode == Mode.REACHING:
+                target_linear_vel   = 0.0
+                control_linear_vel  = 0.0
+                target_angular_vel  = 0.0
+                control_angular_vel = 0.0
+
+                angle1, angle2, angle3, angle4 = reach_angles
+                Mode = Mode.REACHING2
+            elif Mode == Mode.REACHING2:
+                sleep(TIME_TO_MOVE)
+                angle1, angle2, angle3, angle4 = reach_angles2
+                Mode = Mode.GRABBING
+            elif Mode == Mode.GRABBING:
+                sleep(TIME_TO_MOVE)
+                grib_angle = -0.1
+                Mode = Mode.HOLDUP
+            elif Mode == Mode.HOLDUP:
+                sleep(TIME_TO_MOVE)
+                angle1, angle2, angle3, angle4 = holdup_angles
+                Mode = Mode.IDLE
+
             if key == 'y':
                 print("How can I help you?")
                 target = getTarget()
                 print("Target is ",target)
-                searching = True
-                found = False
-                sub = rospy.Subscriber("/darknet_ros/bounding_boxes", BoundingBoxes, callback)
-                
+                Mode = Mode.SEARCHING
+                sub = rospy.Subscriber("/darknet_ros/bounding_boxes", BoundingBoxes, detector)
                 
             elif key == 'u' :
                 print("Stoppping")
-                target_linear_vel   = 0.0
-                control_linear_vel  = 0.0
-                target_angular_vel  = 0.0
-                control_angular_vel = 0.0
                 angle1, angle2, angle3, angle4 = default_angles
-                print(vels(target_linear_vel, target_angular_vel))
+                Mode = Mode.IDLE
             
             elif key == 'r' :
                 print("Reaching")
@@ -245,6 +310,7 @@ if __name__=="__main__":
                 print(arms(angle1, angle2, angle3, angle4))
             elif key == '7':
                 angle4 += 0.03
+                print(arms(angle1, angle2, angle3, angle4))
             elif key == '.':
                 angle1 -= 0.03
                 print(arms(angle1, angle2, angle3, angle4))
