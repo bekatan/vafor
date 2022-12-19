@@ -19,9 +19,9 @@ class Mode(Enum):
     APPROACHING = 3
     REACHING = 4
     REACHING2 = 5
-    GRABBING = 6
-    HOLDUP = 7
-    ADJUSTING = 8
+    GRIP = 6
+    PICKUP = 7
+    BRINGING = 8
 
 BURGER_MAX_LIN_VEL = 0.22
 BURGER_MAX_ANG_VEL = 2.84
@@ -130,7 +130,7 @@ def getTarget():
                 sentence = r.recognize_google(audio2)
                 sentence = sentence.lower()
 
-                print("Did you say ",sentence)
+                print("Did you say: \"",sentence.capitalize(),"\"?")
                 
         except sr.RequestError as e:
             print("Could not request results; {0}".format(e))
@@ -153,20 +153,28 @@ def detector(data):
     
     for box in data.bounding_boxes:
         if box.Class == target:
-            print("Found ", box.Class)
+            print("Found:", box.Class)
             sub_adjust = rospy.Subscriber('/darknet_ros/bounding_boxes', BoundingBoxes, adjust)
             sub_laser = rospy.Subscriber('/scan', LaserScan, laser)
             Mode = Mode.APPROACHING
             sub.unregister()
+            return
 
 def laser(data):
     global Mode
     global direction
     
+    if target == 'person' and data.ranges[0] < 0.7:
+        Mode = Mode.REACHING2
+        sub_laser.unregister()
+        sub_adjust.unregister()
+        return
+
     if data.ranges[0] < 0.3:
         Mode = Mode.REACHING
         sub_laser.unregister()
         sub_adjust.unregister()
+        return
 
 def adjust(data):
     global Mode
@@ -214,33 +222,35 @@ if __name__=="__main__":
     holdup_angles = 0.0, 0.0, -1.6, 0.0
     angle1, angle2, angle3, angle4 = default_angles
     
-
     Mode = Mode.IDLE
-
+    prev = Mode.IDLE
     grib_angle = 0.025
 
     try:
         print(msg)
         while not rospy.is_shutdown():
+            if Mode != prev:
+                print("Mode changed from: ", prev, " to: ", Mode)
+                prev = Mode
+                if Mode == Mode.IDLE:
+                    print(msg)
             key = getKey()
             if Mode == Mode.IDLE:
                 target_linear_vel   = 0.0
-                control_linear_vel  = 0.0
+                control_linear_vel = 0.0
                 target_angular_vel  = 0.0
                 control_angular_vel = 0.0
-                # angle1, angle2, angle3, angle4 = default_angles
+                grib_angle = 0.025
+                angle1, angle2, angle3, angle4 = default_angles
             elif Mode == Mode.SEARCHING:
                 target_angular_vel = ANG_VEL_STEP_SIZE
                 target_linear_vel   = 0.0
-                angle1, angle2, angle3, angle4 = default_angles
-                grib_angle = 0.025
-
+                # angle1, angle2, angle3, angle4 = default_angles
             elif Mode == Mode.APPROACHING:
                 target_linear_vel   = LIN_VEL_STEP_SIZE
-                
             elif Mode == Mode.REACHING:
                 target_linear_vel   = 0.0
-                control_linear_vel  = 0.0
+                control_linear_vel = 0.0
                 target_angular_vel  = 0.0
                 control_angular_vel = 0.0
 
@@ -248,21 +258,35 @@ if __name__=="__main__":
                 Mode = Mode.REACHING2
             elif Mode == Mode.REACHING2:
                 sleep(TIME_TO_MOVE)
+
+                target_linear_vel   = 0.0
+                control_linear_vel = 0.0
+                target_angular_vel  = 0.0
+                control_angular_vel = 0.0
+
                 angle1, angle2, angle3, angle4 = reach_angles2
-                Mode = Mode.GRABBING
-            elif Mode == Mode.GRABBING:
+                Mode = Mode.GRIP
+            elif Mode == Mode.GRIP:
                 sleep(TIME_TO_MOVE)
-                grib_angle = -0.1
-                Mode = Mode.HOLDUP
-            elif Mode == Mode.HOLDUP:
+                if target != 'person':
+                    grib_angle = -0.1
+                    Mode = Mode.PICKUP
+                else:
+                    grib_angle = 0.025
+                    Mode = Mode.IDLE
+            elif Mode == Mode.PICKUP:
                 sleep(TIME_TO_MOVE)
-                angle1, angle2, angle3, angle4 = holdup_angles
-                Mode = Mode.IDLE
+                angle1, angle2, angle3, angle4 = default_angles
+                Mode = Mode.BRINGING
+            elif Mode == Mode.BRINGING:
+                target = 'person'
+                Mode = Mode.SEARCHING
+                sub = rospy.Subscriber("/darknet_ros/bounding_boxes", BoundingBoxes, detector)
 
             if key == 'y':
                 print("How can I help you?")
                 target = getTarget()
-                print("Target is ",target)
+                print("Target is \"",target,"\"")
                 Mode = Mode.SEARCHING
                 sub = rospy.Subscriber("/darknet_ros/bounding_boxes", BoundingBoxes, detector)
                 
