@@ -6,6 +6,7 @@ import sys, select, os
 import tty, termios
 from time import sleep
 import spacy
+import openai
 import speech_recognition as sr
 from darknet_ros_msgs.msg import BoundingBoxes
 from std_msgs.msg import Float64MultiArray
@@ -36,6 +37,9 @@ TIME_TO_MOVE = 3
 
 # Mode = Mode.IDLE
 
+openai.api_key = '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'
+objects = ['banana', 'bottle', 'apple', 'chair', 'cup', 'keyboard', 'laptop', 'mouse', 'remote', 'scissors', 'speaker', 'cellphone', 'chair']
+            
 msg = """
 Welcome to the Vafor!
 ---------------------------
@@ -117,7 +121,7 @@ def get_coco_names():
             names[id] = name[0:-1]
     return names
 
-def getTarget():
+def getTarget(gpt = True):
     sentence = ""
     target = ""
     while target == "":
@@ -137,13 +141,29 @@ def getTarget():
             
         except sr.UnknownValueError:
             print("unknown error occurred")
-            
-        doc = nlp(sentence)
+        
+        if gpt:
+            prompt = "Decide which of these is the desired object in the prompt: {}\n".format(', '.join(objects))
 
-        for token in doc:
-            if token.dep_ == 'dobj' and token.text in names.values():
-                target = token.text
-                
+            prompt += """Prompt: "{}"
+            Desired object:""".format(sentence)
+            
+            response = openai.Completion.create(
+                model="text-davinci-003",
+                prompt=prompt,
+                temperature=0,
+            )
+            # print(prompt)
+            # print(response.choices[0].text)
+            if response.choices[0].text.lower().strip() in objects:
+                target = response.choices[0].text.lower().strip()
+        else:
+            doc = nlp(sentence)
+
+            for token in doc:
+                if token.dep_ == 'dobj' and token.text in names.values():
+                    target = token.text
+            
     return target
 
 def detector(data):
