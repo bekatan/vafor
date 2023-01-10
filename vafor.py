@@ -12,6 +12,7 @@ from darknet_ros_msgs.msg import BoundingBoxes
 from std_msgs.msg import Float64MultiArray
 from enum import Enum
 from sensor_msgs.msg import LaserScan
+from decouple import config
 
 class Mode(Enum):
     IDLE = 0
@@ -37,7 +38,7 @@ TIME_TO_MOVE = 3
 
 # Mode = Mode.IDLE
 
-openai.api_key = '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'
+openai.api_key = config("OPENAI_API_KEY")
 objects = ['banana', 'bottle', 'apple', 'chair', 'cup', 'keyboard', 'laptop', 'mouse', 'remote', 'scissors', 'speaker', 'cellphone', 'chair']
             
 msg = """
@@ -132,9 +133,9 @@ def getTarget(gpt = True):
                 audio2 = r.listen(source2)
                 
                 sentence = r.recognize_google(audio2)
-                sentence = sentence.lower()
+                sentence = sentence.capitalize()
 
-                print("Did you say: \"",sentence.capitalize(),"\"?")
+                print("Did you say: \"",sentence,"\"?")
                 
         except sr.RequestError as e:
             print("Could not request results; {0}".format(e))
@@ -143,18 +144,20 @@ def getTarget(gpt = True):
             print("unknown error occurred")
         
         if gpt:
-            prompt = "Decide which of these is the desired object in the prompt: {}\n".format(', '.join(objects))
-
-            prompt += """Prompt: "{}"
-            Desired object:""".format(sentence)
+            prompt = """
+Which one object can help with the situation in the prompt the most?
+Objects: {}.
+Prompt: {}.
+Answer:""".format(', '.join(objects), sentence)
             
             response = openai.Completion.create(
                 model="text-davinci-003",
                 prompt=prompt,
                 temperature=0,
+                top_p = 0,
             )
-            # print(prompt)
-            # print(response.choices[0].text)
+            print(prompt)
+            print(response.choices[0].text)
             if response.choices[0].text.lower().strip() in objects:
                 target = response.choices[0].text.lower().strip()
         else:
