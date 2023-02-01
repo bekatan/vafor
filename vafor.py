@@ -2,9 +2,9 @@
 
 import rospy
 from geometry_msgs.msg import Twist
-import sys, select, os
+import sys, select
 import tty, termios
-from time import sleep
+import time
 import spacy
 import openai
 import speech_recognition as sr
@@ -24,6 +24,7 @@ class Mode(Enum):
     GRIP = 6
     PICKUP = 7
     BRINGING = 8
+    STARTUP = 9
 
 BURGER_MAX_LIN_VEL = 0.22
 BURGER_MAX_ANG_VEL = 2.84
@@ -39,8 +40,24 @@ TIME_TO_MOVE = 3
 # Mode = Mode.IDLE
 
 openai.api_key = config("OPENAI_API_KEY")
-objects = ['banana', 'bottle', 'apple', 'chair', 'cup', 'keyboard', 'laptop', 'mouse', 'remote', 'scissors', 'speaker', 'cellphone', 'chair']
-            
+# objects = ['banana', 'bottle', 'remote']#, 'apple', 'chair', 'cup', 'keyboard', 'laptop', 'mouse', 'scissors', 'speaker', 'cellphone', 'chair']
+objects = set()
+objects.add('apple')
+objects.add('banana')
+objects.add('pizza')
+objects.add('chips')
+objects.add('cellphone')
+objects.add('bottle')
+objects.add('remote')
+objects.add('ibuprofen')
+objects.add('adrenaline')
+objects.add('epipen')
+objects.add('charger')
+objects.add('wrench')
+objects.add('screwdriver')
+objects.add('hammer')
+objects.add('tape measure')
+
 msg = """
 Welcome to the Vafor!
 ---------------------------
@@ -95,24 +112,11 @@ def constrain(input, low, high):
     return input
 
 def checkLinearLimitVelocity(vel):
-    if turtlebot3_model == "burger":
-      vel = constrain(vel, -BURGER_MAX_LIN_VEL, BURGER_MAX_LIN_VEL)
-    elif turtlebot3_model == "waffle" or turtlebot3_model == "waffle_pi":
-      vel = constrain(vel, -WAFFLE_MAX_LIN_VEL, WAFFLE_MAX_LIN_VEL)
-    else:
-      vel = constrain(vel, -BURGER_MAX_LIN_VEL, BURGER_MAX_LIN_VEL)
-
-    return vel
+    return constrain(vel, -WAFFLE_MAX_LIN_VEL, WAFFLE_MAX_LIN_VEL)
+    
 
 def checkAngularLimitVelocity(vel):
-    if turtlebot3_model == "burger":
-      vel = constrain(vel, -BURGER_MAX_ANG_VEL, BURGER_MAX_ANG_VEL)
-    elif turtlebot3_model == "waffle" or turtlebot3_model == "waffle_pi":
-      vel = constrain(vel, -WAFFLE_MAX_ANG_VEL, WAFFLE_MAX_ANG_VEL)
-    else:
-      vel = constrain(vel, -BURGER_MAX_ANG_VEL, BURGER_MAX_ANG_VEL)
-
-    return vel
+    return constrain(vel, -WAFFLE_MAX_ANG_VEL, WAFFLE_MAX_ANG_VEL)
 
 #function to get the coco.names file
 def get_coco_names():
@@ -124,6 +128,7 @@ def get_coco_names():
 
 def getTarget(gpt = True):
     sentence = ""
+    prev = ""
     target = ""
     while target == "":
         try:
@@ -131,10 +136,10 @@ def getTarget(gpt = True):
                 r.adjust_for_ambient_noise(source2, duration=0.5)
                 
                 audio2 = r.listen(source2)
-                
+
+                prev = sentence                
                 sentence = r.recognize_google(audio2)
                 sentence = sentence.capitalize()
-
                 print("Did you say: \"",sentence,"\"?")
                 
         except sr.RequestError as e:
@@ -143,12 +148,15 @@ def getTarget(gpt = True):
         except sr.UnknownValueError:
             print("unknown error occurred")
         
+        if sentence == prev:
+            continue
+
         if gpt:
             prompt = """
 Which one object can help with the situation in the prompt the most?
 Objects: {}.
 Prompt: {}.
-Answer:""".format(', '.join(objects), sentence)
+Answer and why:""".format(', '.join(objects), sentence)
             
             response = openai.Completion.create(
                 model="text-davinci-003",
@@ -158,30 +166,42 @@ Answer:""".format(', '.join(objects), sentence)
             )
             print(prompt)
             print(response.choices[0].text)
-            if response.choices[0].text.lower().strip() in objects:
-                target = response.choices[0].text.lower().strip()
+            # for obj in response.choices[0].text.lower().split():
+            #     if obj in objects:
+            #         target = obj
+
+            doc = nlp(response.choices[0].text.strip())
+
+            for token in doc:
+                print(token.pos_, token.lemma_)
+                if token.lemma_.lower() in objects:
+                    target = token.lemma_.lower()
+                    break
         else:
             doc = nlp(sentence)
 
             for token in doc:
                 if token.dep_ == 'dobj' and token.text in names.values():
                     target = token.text
-            
+    
     return target
 
 def detector(data):
     global Mode
     global sub_laser
     global sub_adjust
-    
-    for box in data.bounding_boxes:
-        if box.Class == target:
-            print("Found:", box.Class)
-            sub_adjust = rospy.Subscriber('/darknet_ros/bounding_boxes', BoundingBoxes, adjust)
-            sub_laser = rospy.Subscriber('/scan', LaserScan, laser)
-            Mode = Mode.APPROACHING
-            sub.unregister()
-            return
+    if Mode == Mode.SEARCHING:
+        for box in data.bounding_boxes:
+            if box.Class == target:
+                print("Found:", box.Class)
+                sub_adjust = rospy.Subscriber('/darknet_ros/bounding_boxes', BoundingBoxes, adjust)
+                sub_laser = rospy.Subscriber('/scan', LaserScan, laser)
+                Mode = Mode.APPROACHING
+                sub.unregister()
+                return
+    elif Mode == Mode.STARTUP:
+        for box in data.bounding_boxes:
+            objects.add(box.Class)
 
 def laser(data):
     global Mode
@@ -245,10 +265,11 @@ if __name__=="__main__":
     holdup_angles = 0.0, 0.0, -1.6, 0.0
     angle1, angle2, angle3, angle4 = default_angles
     
-    Mode = Mode.IDLE
-    prev = Mode.IDLE
+    Mode = Mode.STARTUP
+    prev = Mode.STARTUP
     grib_angle = 0.025
-
+    sub = rospy.Subscriber("/darknet_ros/bounding_boxes", BoundingBoxes, detector)
+    start = time.time()
     try:
         print(msg)
         while not rospy.is_shutdown():
@@ -257,7 +278,14 @@ if __name__=="__main__":
                 prev = Mode
                 if Mode == Mode.IDLE:
                     print(msg)
+                    print("The objects: ", objects)
             key = getKey()
+            if Mode == Mode.STARTUP:
+                target_angular_vel = -ANG_VEL_STEP_SIZE
+                target_linear_vel   = 0.0
+                if time.time() - start > 10:
+                    sub.unregister()
+                    Mode = Mode.IDLE
             if Mode == Mode.IDLE:
                 target_linear_vel   = 0.0
                 control_linear_vel = 0.0
@@ -280,7 +308,7 @@ if __name__=="__main__":
                 angle1, angle2, angle3, angle4 = reach_angles
                 Mode = Mode.REACHING2
             elif Mode == Mode.REACHING2:
-                sleep(TIME_TO_MOVE)
+                time.sleep(TIME_TO_MOVE)
 
                 target_linear_vel   = 0.0
                 control_linear_vel = 0.0
@@ -290,7 +318,7 @@ if __name__=="__main__":
                 angle1, angle2, angle3, angle4 = reach_angles2
                 Mode = Mode.GRIP
             elif Mode == Mode.GRIP:
-                sleep(TIME_TO_MOVE)
+                time.sleep(TIME_TO_MOVE)
                 if target != 'person':
                     grib_angle = -0.1
                     Mode = Mode.PICKUP
@@ -298,7 +326,7 @@ if __name__=="__main__":
                     grib_angle = 0.025
                     Mode = Mode.IDLE
             elif Mode == Mode.PICKUP:
-                sleep(TIME_TO_MOVE)
+                time.sleep(TIME_TO_MOVE)
                 angle1, angle2, angle3, angle4 = default_angles
                 Mode = Mode.BRINGING
             elif Mode == Mode.BRINGING:
