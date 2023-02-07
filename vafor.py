@@ -43,6 +43,7 @@ openai.api_key = config("OPENAI_API_KEY")
 # objects = ['banana', 'bottle', 'remote']#, 'apple', 'chair', 'cup', 'keyboard', 'laptop', 'mouse', 'scissors', 'speaker', 'cellphone', 'chair']
 objects = set()
 objects.add('apple')
+objects.add('none')
 objects.add('banana')
 objects.add('pizza')
 objects.add('chips')
@@ -166,15 +167,14 @@ Answer and why:""".format(', '.join(objects), sentence)
             )
             print(prompt)
             print(response.choices[0].text)
-            # for obj in response.choices[0].text.lower().split():
-            #     if obj in objects:
-            #         target = obj
 
             doc = nlp(response.choices[0].text.strip())
 
             for token in doc:
-                print(token.pos_, token.lemma_)
-                if token.lemma_.lower() in objects:
+                if token.lemma_.lower() == 'none':
+                    print("Sorry I can not help you with that.")
+                    break
+                elif token.lemma_.lower() in objects:
                     target = token.lemma_.lower()
                     break
         else:

@@ -1,0 +1,101 @@
+,sentence,target,response
+0,Can you bring me a bottle?,bottle," Bottle, because it is the object specifically requested in the prompt."
+1,"Can you bring me something to drink, that is not coffee?",bottle," Bottle - A bottle can be filled with a variety of drinks, such as water"
+2,Can you hand me something made of glass?,bottle, Bottle - A bottle is an object made of glass.
+3,I’m thirsty,bottle, Bottle - A bottle can help with the situation in the prompt the most because it
+4,I want to drink something,bottle, Bottle - A bottle can help with the situation in the prompt the most because it
+5,I am parched,bottle, Bottle - A bottle can help with the situation in the prompt the most because it
+6,I am craving a drink,bottle, Bottle - A bottle can help with the situation in the prompt the most because it
+7,I have not drank anything today,bottle, Bottle - A bottle can help with the situation in the prompt the most because it
+8,John says he is dehydrated,bottle, Bottle - A bottle can help John rehydrate by providing him with a source
+9,I came from the gym and I am thirsting,bottle, Bottle - A bottle can help with the situation in the prompt the most because it
+10,Can you bring me a banana?,banana, A banana can help with the situation in the prompt the most because it is the
+11,Can you bring me a fruit?,banana, Banana. A banana is a type of fruit.
+12,Can you bring me a snack?,banana, A banana. It is a healthy snack that can provide energy and nutrition.
+13,I’m hungry,banana, Banana - A banana can help with hunger as it is a healthy snack.
+14,I want to eat a fruit,banana, Banana - A banana is a type of fruit that can be eaten.
+15,I am ravenous,banana," A banana, because it is a healthy snack that can help to satisfy hunger."
+16,I haven’t had anything to eat since lunch,banana," A banana, because it is a healthy snack that can provide energy and nutrition."
+17,I want a snack,banana, Banana - A banana is a healthy snack that can provide energy and nutrition.
+18,I haven’t had a breakfast yet,banana, A banana. A banana is a healthy and convenient breakfast option.
+19,I’ve been training in the gym and I need to eat something to re-energize,banana," A banana, because it is a healthy snack with natural sugars that can help provide a quick boost of energy."
+20,Can you bring me my phone?,cellphone, Cellphone - It is the only object that can help with the situation in the
+21,I want to call my mother,cellphone, Cellphone - It is the only object that can help with the situation in the
+22,I want to send a text message.,cellphone, Cellphone - A cellphone is the most helpful object for sending a text message.
+23,Let’s order some pizza,cellphone, Cellphone - The cellphone can be used to call and order the pizza.
+24,Let’s play some music,cellphone, Cellphone - A cellphone can help with the situation in the prompt the most because
+25,Let’s play some mobile games,cellphone, Cellphone - A cellphone can help with the situation in the prompt the most because
+26,Let me take a picture of this food,cellphone, Cellphone - A cellphone can help with the situation in the prompt the most because
+27,I think I got a notification,cellphone, Cellphone. A cellphone can help with the situation in the prompt the most because
+28,I think someone is calling,cellphone, Cellphone - It can be used to answer the call and find out who is
+29,I need to record her number,cellphone, Cellphone - It can be used to store the number and call it back if
+30,Can you bring me ibuprofen?,ibuprofen," Ibuprofen, because it is the only object that can help with the"
+31,Can you bring me some painkillers?,ibuprofen," Ibuprofen, because it is a type of painkiller."
+32,Can you bring me an anti-inflammattory?,ibuprofen," Ibuprofen, because it is an anti-inflammatory medication."
+33,I am in pain,ibuprofen," Ibuprofen, because it is a pain reliever."
+34,I have a fever,ibuprofen," Ibuprofen, because it is a medication that can help reduce fever."
+35,I have a migraine,ibuprofen," Ibuprofen, because it is a medication that can help reduce the pain"
+36,I was cooking and I burnt my hand,ibuprofen," Ibuprofen, because it can help reduce pain and inflammation."
+37,I have high temperature,ibuprofen," Ibuprofen, because it is a medication used to reduce fever."
+38,I have a headache,ibuprofen, Ibuprofen. Ibuprofen is a common pain reliever that can
+39,My tooth hurts,ibuprofen," Ibuprofen, because it can help reduce pain and inflammation."
+40,Can you bring me a pen?,pen," Pen, because it is the object that can help with the situation in the prompt"
+41,Can you bring me something to write?,pen, Pen - A pen is the most useful object for writing.
+42,Can you bring me something to take a note?,pen, Pen - A pen is the most helpful object for taking a note.
+43,I want to write my name on this paper,pen, Pen - A pen is the most helpful object for writing one's name on a
+44,I need something to sign this paper,pen, Pen - A pen is the most appropriate object to use to sign a paper.
+45,What can I use to give an autograph?,pen, Pen - A pen is the most useful object for giving an autograph.
+46,I have nothing to write with,pen, Pen - A pen is the most helpful object for writing.
+47,I need John’s signature,pen, Pen - A pen is the most helpful object in this situation as it is needed
+48,I want to draw this flower,pen, Pen - A pen is the most helpful object for drawing a flower.
+49,If I don’t write this down I will forget it,pen, Pen - A pen can help with the situation in the prompt the most because it
+50,Can you bring me scissors?,scissors," Scissors, because it is the only object that can help with the situation in"
+51,Can you bring me something sharp?,scissors, Scissors. Scissors are sharp and can be used to cut things.
+52,Can you bring me something to cut with?,scissors, Scissors. Scissors are specifically designed for cutting.
+53,I want to open this package but it is wrapped really tight,scissors, Scissors - Scissors can be used to cut through the package and open it
+54,I want to trim my hair,scissors, Scissors. Scissors are the best object to help with trimming hair.
+55,I want to trim and prune the plants,scissors, Scissors. Scissors are the best object to help with trimming and pr
+56,I need to snip this fishing line,scissors, Scissors. Scissors are the best object to help with the situation in the
+57,Get me something to make a hole in this piece of fabric,scissors, Scissors - Scissors can be used to make a hole in fabric.
+58,I want to cut this paper in half,scissors, Scissors. Scissors are specifically designed to cut paper.
+59,"I need some tape, give me something to cut it",scissors, Scissors. Scissors can be used to cut tape.
+60,Can you bring me a notebook?,notebook, A notebook can help with the situation in the prompt the most.
+61,Where can I draw a doodle?,notebook, Notebook - A notebook can help with the situation in the prompt the most because it provides a surface to draw a doodle.
+62,I should write this in my diary,notebook, Notebook - A notebook can help with the situation in the prompt the most because
+63,Where is my journal?,notebook, Scissors - Scissors can help with the situation in the prompt the most because they can be used to search through piles of papers or other objects to help locate the journal.
+64,Bring me something I can sketch on,notebook, Notebook - A notebook can provide a surface to sketch on.
+65,I want to see the instructions again. They are in my notebook,notebook, Notebook - The notebook will help the most because it contains the instructions that the person wants to see again.
+66,Let me write this recipe somewhere,notebook, Notebook - A notebook can help with the situation in the prompt the most because
+67,I should start journaling my everyday thoughts,notebook, Notebook - A notebook can help with journaling everyday thoughts.
+68,Let me see my notes again,notebook, Notebook - A notebook can help with the situation in the prompt the most because it is a physical object that can store notes and other information that can be referenced again.
+69,I forgot John’s address but I remember I wrote it down in my everyday journal,notebook, Notebook - This object can help with the situation in the prompt the most because it is the most likely place to find the address that was written down.
+70,Can you bring me some coffee?,coffee," Coffee, because it is the object that can help with the situation in the prompt"
+71,Can you bring me something caffeinated?,coffee," Coffee, because it is a caffeinated beverage."
+72,I feel sleepy,coffee, Coffee - Coffee can help to increase alertness and energy levels.
+73,I had a late night yesterday but I need to work now,coffee, Coffee - Coffee can help to provide a boost of energy and alertness to help
+74,I should not sleep right now,coffee, Coffee - Coffee can help to keep you awake and alert.
+75,I need some nervous system stimulants,coffee, Coffee - Coffee is a stimulant that can help to stimulate the nervous system.
+76,"This assignment is boring and I am falling asleep, but I need to get through it",coffee," Coffee - Coffee can help to increase alertness and energy levels, which can help"
+77,It’s 2 AM but I still have a lot to work on,coffee, Ibuprofen - Ibuprofen can help to reduce fatigue and help
+78,I had an all-nighter but it is time to go to work,coffee, Coffee - Coffee can help to provide a boost of energy and alertness to help
+79,I am craving caffeine,coffee," Coffee, because it contains caffeine."
+80,Can you bring me some tissues?,tissues, Tissues. Tissues are the most appropriate object to bring in this situation.
+81,I need to blow my nose,tissues," Tissues, because they can be used to blow one's nose."
+82,John has a ketchup smear on his face,tissues, Scissors - Scissors can be used to cut a tissue to help John clean
+83,I want to wipe my mouth,tissues, Tissues. Tissues are designed to help clean up messes and wipe away
+84,I spilled water on the couch,tissues, Bottle - To clean up the spilled water.
+85,I need to clean my face,tissues, Tissues - Tissues can be used to clean the face.
+86,John wants to dry his hands,tissues," A bottle, because it can be filled with water and used to pour over John"
+87,My palms are  sweaty,tissues, Tissues - To help wipe away the sweat from the palms.
+88,Give me something to wrap this croissant,tissues, Scissors - Scissors can be used to cut wrapping paper or plastic wrap to
+89,I need something to wipe the screen on my phone,tissues," Tissues. Tissues are designed to be soft and absorbent, making them"
+90,Can you bring my teddy bear?,teddy bear," Teddy bear, because it is specifically mentioned in the prompt."
+91,I want my toys,teddy bear, Teddy bear. A teddy bear is a type of toy that can provide comfort
+92,I am scared,teddy bear, Teddy bear. A teddy bear can provide comfort and security in a time of
+93,I need a stuffed animal,teddy bear, Teddy bear - It is the only object that is specifically a stuffed animal.
+94,I want to sleep,teddy bear, Teddy bear. A teddy bear can help with the situation in the prompt the
+95,Where is my bear?,teddy bear, Teddy bear. It is the only object that is specifically related to the prompt.
+96,A child is crying,teddy bear, Teddy bear. A teddy bear can help comfort a child who is crying.
+97,I need something to comfort me,teddy bear, Teddy bear. A teddy bear can provide comfort and emotional support.
+98,I want something plushy,teddy bear, Teddy bear - It is the only object that is plushy.
+99,I need some cushion,teddy bear, Teddy bear - A teddy bear can provide a physical cushion to sit on or

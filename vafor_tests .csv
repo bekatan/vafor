@@ -1,0 +1,101 @@
+sentence,target
+Can you bring me a bottle?,bottle
+"Can you bring me something to drink, that is not coffee?",bottle
+Can you hand me something made of glass?,bottle
+I’m thirsty,bottle
+I want to drink something,bottle
+I am parched,bottle
+I am craving a drink,bottle
+I have not drank anything today,bottle
+John says he is dehydrated,bottle
+I came from the gym and I am thirsting,bottle
+Can you bring me a banana?,banana
+Can you bring me a fruit?,banana
+Can you bring me a snack?,banana
+I’m hungry,banana
+I want to eat a fruit,banana
+I am ravenous,banana
+I haven’t had anything to eat since lunch,banana
+I want a snack,banana
+I haven’t had a breakfast yet,banana
+I’ve been training in the gym and need to re-energize.,banana
+Can you bring me my phone?,cellphone
+I want to call my mother,cellphone
+I want to send a text message.,cellphone
+Let’s order some pizza,cellphone
+Let’s play some music,cellphone
+Let’s play some mobile games,cellphone
+Let me take a picture of this food,cellphone
+I think I got a notification,cellphone
+I think someone is calling,cellphone
+I want to use Instagram,cellphone
+Can you bring me ibuprofen?,ibuprofen
+Can you bring me some painkillers?,ibuprofen
+Can you bring me an anti-inflammattory?,ibuprofen
+I am in pain,ibuprofen
+I have a fever,ibuprofen
+I have a migraine,ibuprofen
+I was cooking and I burnt my hand,ibuprofen
+I have high temperature,ibuprofen
+I have a headache,ibuprofen
+My tooth hurts,ibuprofen
+Can you bring me a pen?,pen
+Can you bring me something to write?,pen
+Can you bring me something to take a note?,pen
+I want to write my name on this paper,pen
+I need something to sign this paper,pen
+What can I use to give an autograph?,pen
+I have nothing to write with,pen
+I need John’s signature,pen
+I need to record her number,pen
+If I don’t write this down I will forget it,pen
+Can you bring me scissors?,scissors
+Can you bring me something sharp?,scissors
+Can you bring me something to cut with?,scissors
+I want to open this package but it is wrapped really tight,scissors
+I want to trim my hair,scissors
+I want to trim and prune the plants,scissors
+I need to snip this fishing line,scissors
+Get me something to make a hole in this piece of fabric,scissors
+I want to cut this paper in half,scissors
+"I need some tape, give me something to cut it",scissors
+Can you bring me a notebook?,notebook
+I should take some notes during this meeting,notebook
+I should write this in my diary,notebook
+Let’s make a to-do list,notebook
+Bring me something I can sketch on,notebook
+That’s a good idea! Let’s write it somewhere,notebook
+Let me write this recipe somewhere,notebook
+I should start journaling my everyday thoughts,notebook
+I want to write a poem,notebook
+I want to draw this flower,notebook
+Can you bring me some coffee?,coffee
+Can you bring me something caffeinated?,coffee
+I feel sleepy,coffee
+I had a late night yesterday but I need to work now,coffee
+I should not sleep right now,coffee
+I need some nervous system stimulants,coffee
+"This assignment is boring and I am falling asleep, but I need to get through it",coffee
+It’s 2 AM but I still have a lot to work on,coffee
+I had an all-nighter but it is time to go to work,coffee
+I am craving caffeine,coffee
+Can you bring me some tissues?,tissues
+I need to blow my nose,tissues
+John has a ketchup smear on his face,tissues
+I want to wipe my mouth,tissues
+I spilled water on the couch,tissues
+I need to clean my face,tissues
+John wants to dry his hands,tissues
+My glasses are dirty,tissues
+Give me something to wrap this croissant,tissues
+I need something to wipe the screen on my phone,tissues
+Can you bring my teddy bear?,teddy bear
+I want my toys,teddy bear
+I am scared,teddy bear
+I need a stuffed animal,teddy bear
+I want to sleep,teddy bear
+Where is my bear?,teddy bear
+A child is crying,teddy bear
+I need something to comfort me,teddy bear
+I want something plushy,teddy bear
+I need some cushion,teddy bear
