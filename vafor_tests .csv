@@ -18,7 +18,7 @@ I am ravenous,banana
 I haven’t had anything to eat since lunch,banana
 I want a snack,banana
 I haven’t had a breakfast yet,banana
-I’ve been training in the gym and need to re-energize.,banana
+I’ve been training in the gym and I need to eat something to re-energize,banana
 Can you bring me my phone?,cellphone
 I want to call my mother,cellphone
 I want to send a text message.,cellphone
@@ -28,7 +28,7 @@ Let’s play some mobile games,cellphone
 Let me take a picture of this food,cellphone
 I think I got a notification,cellphone
 I think someone is calling,cellphone
-I want to use Instagram,cellphone
+I need to record her number,cellphone
 Can you bring me ibuprofen?,ibuprofen
 Can you bring me some painkillers?,ibuprofen
 Can you bring me an anti-inflammattory?,ibuprofen
@@ -47,7 +47,7 @@ I need something to sign this paper,pen
 What can I use to give an autograph?,pen
 I have nothing to write with,pen
 I need John’s signature,pen
-I need to record her number,pen
+I want to draw this flower,pen
 If I don’t write this down I will forget it,pen
 Can you bring me scissors?,scissors
 Can you bring me something sharp?,scissors
@@ -60,15 +60,15 @@ Get me something to make a hole in this piece of fabric,scissors
 I want to cut this paper in half,scissors
 "I need some tape, give me something to cut it",scissors
 Can you bring me a notebook?,notebook
-I should take some notes during this meeting,notebook
+Where can I draw a doodle?,notebook
 I should write this in my diary,notebook
-Let’s make a to-do list,notebook
+Where is my journal?,notebook
 Bring me something I can sketch on,notebook
-That’s a good idea! Let’s write it somewhere,notebook
+I want to see the instructions again. They are in my notebook,notebook
 Let me write this recipe somewhere,notebook
 I should start journaling my everyday thoughts,notebook
-I want to write a poem,notebook
-I want to draw this flower,notebook
+Let me see my notes again,notebook
+I forgot John’s address but I remember I wrote it down in my everyday journal,notebook
 Can you bring me some coffee?,coffee
 Can you bring me something caffeinated?,coffee
 I feel sleepy,coffee
@@ -86,7 +86,7 @@ I want to wipe my mouth,tissues
 I spilled water on the couch,tissues
 I need to clean my face,tissues
 John wants to dry his hands,tissues
-My glasses are dirty,tissues
+My palms are  sweaty,tissues
 Give me something to wrap this croissant,tissues
 I need something to wipe the screen on my phone,tissues
 Can you bring my teddy bear?,teddy bear

@@ -55,48 +55,33 @@ def retry_with_exponential_backoff(
 def completions_with_backoff(**kwargs):
     return openai.Completion.create(**kwargs)
 
-
-completions_with_backoff(model="text-davinci-002", prompt="Once upon a time,")
-
 df = pd.read_csv('vafor_tests .csv')
 
-print(df)
-
 objects = df['target'].unique().tolist()
-responces = []
 
-for sentence, target in df.values:
-    prompt = """
-Which one object can help with the situation in the prompt the most?
-Objects: {}.
-Prompt: {}
-Answer and why:""".format(', '.join(objects), sentence)
-    
-    response = completions_with_backoff(model="text-davinci-003", 
-                             prompt=prompt, 
-                             temperature=0, 
-                             top_p=0, 
-                             )
-    
-    print(prompt)
-    print(response.choices[0].text)
+# models = ['text-curie-001', 'text-babbage-001', 'text-ada-001', ]
+models = ['text-babbage-001', 'text-ada-001', ]
 
-    responces.append(response.choices[0].text)
+for model in models:
+    responses = []
+    for sentence, target, *response in df.values:
+        prompt = """
+    Which one object can help with the situation in the prompt the most?
+    Objects: {}.
+    Prompt: {}
+    Answer and why:""".format(', '.join(objects), sentence)
+        
+        response = completions_with_backoff(model=model, 
+                                prompt=prompt, 
+                                temperature=0, 
+                                top_p=0,
+                                max_tokens=100, 
+                                )
+        
+        print(prompt)
+        print(response.choices[0].text)
 
-df['response'] = responces
-df.to_csv('vafor_responses.csv')
-    # sentence = "I want to eat something."
-    # prompt = "Decide which of these is the desired object in the prompt: {}\n".format(', '.join(objects))
+        responses.append(response.choices[0].text.strip())
 
-    # prompt += """Prompt: "{}"
-    # Desired object:""".format(sentence)
-
-    # response = openai.Completion.create(
-    #     model="text-davinci-003",
-    #     prompt=prompt,
-    #     temperature=0,
-    # )
-    # print(prompt)
-    # print(response.choices[0].text)
-    # for i in response.choices:
-    #     print(i.text)
+    df['response'] = responses
+    df.to_csv(model + '_responses.csv')
