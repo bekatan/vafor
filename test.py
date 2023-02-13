@@ -59,17 +59,22 @@ df = pd.read_csv('vafor_tests .csv')
 
 objects = df['target'].unique().tolist()
 
-# models = ['text-curie-001', 'text-babbage-001', 'text-ada-001', ]
-models = ['text-babbage-001', 'text-ada-001', ]
+models = ['text-davinci-003','text-curie-001', 'text-babbage-001', 'text-ada-001', ]
+# models = ['text-babbage-001', 'text-ada-001', ]
 
 for model in models:
     responses = []
     for sentence, target, *response in df.values:
         prompt = """
-    Which one object can help with the situation in the prompt the most?
     Objects: {}.
+    Prompt: Can you bring me a bottle?
+    Answer: bottle
+    Prompt: I am sleepy.
+    Answer: coffee
+    Prompt: I want to order pizza.
+    Answer: cellphone
     Prompt: {}
-    Answer and why:""".format(', '.join(objects), sentence)
+    Answer:""".format(', '.join(objects), sentence)
         
         response = completions_with_backoff(model=model, 
                                 prompt=prompt, 
@@ -84,4 +89,4 @@ for model in models:
         responses.append(response.choices[0].text.strip())
 
     df['response'] = responses
-    df.to_csv(model + '_responses.csv')
+    df.to_csv(model + '_panda_responses.csv')

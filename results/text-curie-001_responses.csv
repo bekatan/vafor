@@ -1,0 +1,107 @@
+,sentence,target,response,mark
+0,Can you bring me a bottle?,bottle, A bottle can help with the situation because it can provide a way to drink water,1
+1,"Can you bring me something to drink, that is not coffee?",bottle, The best option for the situation is a bottle of water. A banana would also,1
+2,Can you hand me something made of glass?,bottle, A bottle would be the best option because it is made of glass and can be,1
+3,I’m thirsty,bottle, A bottle of water would be the best option for helping with the situation in the,1
+4,I want to drink something,bottle, The coffee can help with the situation because it can help to give you energy.,1
+5,I am parched,bottle, A bottle of water would be the best option for helping with the situation in the,1
+6,I am craving a drink,bottle, The bottle can help with the craving because it can hold liquids. The banana can,1
+7,I have not drank anything today,bottle, The coffee can help with the situation because it will give you energy. The tissues,0
+8,John says he is dehydrated,bottle, The banana would be the best object to help John because it is a source of,0
+9,I came from the gym and I am thirsting,bottle, The best object to help with the situation in the prompt is a bottle of water,1
+10,Can you bring me a banana?,banana, The banana can help with the situation because it is a food that can help with,1
+11,Can you bring me a fruit?,banana, The best option for this prompt is a banana. Bananas are easy to carry,1
+12,Can you bring me a snack?,banana, The best option for snacks would be a banana because it is a healthy option and,1
+13,I’m hungry,banana, The banana would be the best option because it is a healthy snack that can help,1
+14,I want to eat a fruit,banana, The banana is the best option because it is a healthy option and it can help,1
+15,I am ravenous,banana, The banana would be the best option for helping with the situation because it is a,1
+16,I haven’t had anything to eat since lunch,banana, The banana would be the best option because it is a fruit and contains nutrients that,1
+17,I want a snack,banana, The banana would be the best snack because it is a healthy option and it has,1
+18,I haven’t had a breakfast yet,banana, The coffee can help with the situation because it will give you energy to start the,1
+19,I’ve been training in the gym and I need to eat something to re-energize,banana, The banana would be the best option because it is a source of energy and it,1
+20,Can you bring me my phone?,cellphone, The cellphone can help with the situation because it can be used to call for help,1
+21,I want to call my mother,cellphone, The cellphone can help with this because it has a phone number.,1
+22,I want to send a text message.,cellphone, The cellphone is the best object to send a text message with because it has a,1
+23,Let’s order some pizza,cellphone,"
+
+The best option for ordering pizza would be to use a cellphone. This",1
+24,Let’s play some music,cellphone, The cellphone can help with the situation because it can play music.,1
+25,Let’s play some mobile games,cellphone, The cellphone would be the best object to help with this situation because it can be,1
+26,Let me take a picture of this food,cellphone, A cellphone can help take a picture of the food because it has a camera.,1
+27,I think I got a notification,cellphone, The cellphone would be the best object to help with the situation because it can notify,1
+28,I think someone is calling,cellphone, The cellphone can help with the situation because it can be used to answer the phone,1
+29,I need to record her number,cellphone, A cellphone can be used to record her number. It is portable and can be,1
+30,Can you bring me ibuprofen?,ibuprofen, The ibuprofen can help with the pain in the situation.,1
+31,Can you bring me some painkillers?,ibuprofen, The best option for this prompt would be to bring a bottle of painkillers.,0
+32,Can you bring me an anti-inflammattory?,ibuprofen, The best option for this prompt would be a bottle of ibuprofen.,1
+33,I am in pain,ibuprofen, The bottle can help with the situation because it can provide relief from the pain.,0
+34,I have a fever,ibuprofen, The banana can help with the fever because it is a natural remedy for it.,0
+35,I have a migraine,ibuprofen, The banana would be the best option for someone with a migraine because it is a,0
+36,I was cooking and I burnt my hand,ibuprofen, The best object to help with this situation is a bottle of water. If you,0
+37,I have high temperature,ibuprofen, The best object to help with the situation is a bottle of water. It can,0
+38,I have a headache,ibuprofen, The best object to help with a headache is a bottle of water. It can,0
+39,My tooth hurts,ibuprofen, A bottle of water would be the best object to help with the situation because it,0
+40,Can you bring me a pen?,pen, A pen can help with the situation in the prompt because it can be used to,1
+41,Can you bring me something to write?,pen, The best option for helping with the situation in the prompt is a notebook. A,1
+42,Can you bring me something to take a note?,pen, The best option for taking a note is a notebook. It is portable and can,1
+43,I want to write my name on this paper,pen, A pen would be the best object to help with this situation because it has a,1
+44,I need something to sign this paper,pen, A pen would be the best option because it can be used to write on the,1
+45,What can I use to give an autograph?,pen, A banana would be the best option for this prompt because it is soft and easy,0
+46,I have nothing to write with,pen," A pen would be the best option because it can be used to write with,",1
+47,I need John’s signature,pen, The cellphone can be used to call John and ask for his signature. The banana,0
+48,I want to draw this flower,pen, A bottle can help with the situation because it can be used to hold the flower,0
+49,If I don’t write this down I will forget it,pen, The notebook would be the best object to help with this situation because it can be,1
+50,Can you bring me scissors?,scissors, The scissors can help with the situation because they can be used to cut the banana,1
+51,Can you bring me something sharp?,scissors, The best option for sharp objects is a bottle. A banana can also be helpful,0
+52,Can you bring me something to cut with?,scissors, The bottle can help with the situation because it has a sharp edge. The banana,0
+53,I want to open this package but it is wrapped really tight,scissors, The bottle can help with the situation because it can help break the seal on the,0
+54,I want to trim my hair,scissors, A hair trimmer is the best object to use to trim your hair. It,0
+55,I want to trim and prune the plants,scissors, The bottle can help with the situation because it can hold water and help with the,0
+56,I need to snip this fishing line,scissors, The bottle can help with the situation because it can be used to cut the fishing,0
+57,Get me something to make a hole in this piece of fabric,scissors, A bottle can help with the situation because it can help make a hole in the,0
+58,I want to cut this paper in half,scissors, The bottle can help because it can be used to cut the paper in half.,0
+59,"I need some tape, give me something to cut it",scissors, The bottle can help because it has a lid that can be used to cover the,0
+60,Can you bring me a notebook?,notebook, A notebook can help with the situation because it can be used to write down what,1
+61,Where can I draw a doodle?,notebook," The best place to draw a doodle is probably a notebook, because it",1
+62,I should write this in my diary,notebook, A notebook would be the best object to write in because it has a lot of,1
+63,Where is my journal?,notebook, A journal can help with the situation in the prompt the most because it can be,0
+64,Bring me something I can sketch on,notebook, The coffee can help with the situation because it can be used to draw on.,0
+65,I want to see the instructions again. They are in my notebook,notebook, The notebook is the best option for this situation because it has the instructions written in,1
+66,Let me write this recipe somewhere,notebook, The notebook would be the best option for this situation because it can be used to,1
+67,I should start journaling my everyday thoughts,notebook, A journal can help with the situation in the prompt the most because it can help,0
+68,Let me see my notes again,notebook, The notebook would be the best object to help with the situation because it can hold,1
+69,I forgot John’s address but I remember I wrote it down in my everyday journal,notebook, The notebook would be the best object to help with this situation because it has a,1
+70,Can you bring me some coffee?,coffee, Coffee is a common beverage that can help with the situation. It can provide energy,1
+71,Can you bring me something caffeinated?,coffee, The coffee is the most helpful object because it can help with the situation of needing,1
+72,I feel sleepy,coffee, A banana would be a good choice because it is a natural source of energy and,0
+73,I had a late night yesterday but I need to work now,coffee, The coffee can help with the situation because it will give you energy to work.,1
+74,I should not sleep right now,coffee, The best object to help with this situation is a coffee mug. It can help,1
+75,I need some nervous system stimulants,coffee, The banana is the best option because it is a source of potassium which is a,0
+76,"This assignment is boring and I am falling asleep, but I need to get through it",coffee, The best object to help with this situation is a coffee. It will help to,1
+77,It’s 2 AM but I still have a lot to work on,coffee, A coffee would help me stay awake and focus.,1
+78,I had an all-nighter but it is time to go to work,coffee, The coffee can help with the situation because it will give you energy to get through,1
+79,I am craving caffeine,coffee, Caffeine can help with the craving for caffeine. It can help to give,0
+80,Can you bring me some tissues?,tissues, The best option for tissues is a bottle. It is easy to carry around and,1
+81,I need to blow my nose,tissues, The best option for blowing your nose is likely a bottle of water or some tissues,1
+82,John has a ketchup smear on his face,tissues, The best object to help with this situation is a bottle. John can use the,1
+83,I want to wipe my mouth,tissues, A bottle of water can help with the situation in the prompt the most because it,0
+84,I spilled water on the couch,tissues, The coffee can help with the situation because it can help clean the couch.,0
+85,I need to clean my face,tissues, A bottle of water can help with cleaning your face because it has a wet surface,1
+86,John wants to dry his hands,tissues, The best option for drying hands would be a bottle of water. John can pour,0
+87,My palms are  sweaty,tissues, A bottle of water would be the best option for helping with the situation in the,0
+88,Give me something to wrap this croissant,tissues, The best option for wrapping a croissant would be a piece of paper or,0
+89,I need something to wipe the screen on my phone,tissues, A banana would be the best option because it is soft and can be used to,0
+90,Can you bring my teddy bear?,teddy bear, The teddy bear can help with the situation because it can be used as a,1
+91,I want my toys,teddy bear, The best option for helping with this situation would be a bottle. It can be,0
+92,I am scared,teddy bear,"
+
+The object that can help the most in this situation is a cellphone.",1
+93,I need a stuffed animal,teddy bear, A teddy bear can help with the situation because it can provide comfort.,1
+94,I want to sleep,teddy bear, A banana would be the best option for helping with the situation because it is a,0
+95,Where is my bear?,teddy bear, The teddy bear can help with the situation because it can provide comfort and security,1
+96,A child is crying,teddy bear,"
+
+The best object to help with the situation in the prompt the most would",0
+97,I need something to comfort me,teddy bear, The teddy bear is the best option because it is soft and cuddly,1
+98,I want something plushy,teddy bear, A teddy bear would be a great choice for someone who wants something plushy,1
+99,I need some cushion,teddy bear, A bottle of water would be the best option for cushion because it is heavy and,0

@@ -1,0 +1,107 @@
+,sentence,target,response,mark
+0,Can you bring me a bottle?,bottle,banana,0
+1,"Can you bring me something to drink, that is not coffee?",bottle,pen,0
+2,Can you hand me something made of glass?,bottle,banana,0
+3,I’m thirsty,bottle,pen,0
+4,I want to drink something,bottle,pen,0
+5,I am parched,bottle,pen,0
+6,I am craving a drink,bottle,pen,0
+7,I have not drank anything today,bottle,pen,0
+8,John says he is dehydrated,bottle,pen,0
+9,I came from the gym and I am thirsting,bottle,pen,0
+10,Can you bring me a banana?,banana,banana,1
+11,Can you bring me a fruit?,banana,banana,1
+12,Can you bring me a snack?,banana,teddy bear,0
+13,I’m hungry,banana,pen,0
+14,I want to eat a fruit,banana,pen,0
+15,I am ravenous,banana,pen,0
+16,I haven’t had anything to eat since lunch,banana,pen,0
+17,I want a snack,banana,pen,0
+18,I haven’t had a breakfast yet,banana,pen,0
+19,I’ve been training in the gym and I need to eat something to re-energize,banana,pen,0
+20,Can you bring me my phone?,cellphone,pen,0
+21,I want to call my mother,cellphone,pen,0
+22,I want to send a text message.,cellphone,pen,0
+23,Let’s order some pizza,cellphone,pen,0
+24,Let’s play some music,cellphone,pen,0
+25,Let’s play some mobile games,cellphone,pen,0
+26,Let me take a picture of this food,cellphone,pen,0
+27,I think I got a notification,cellphone,pen,0
+28,I think someone is calling,cellphone,pen,0
+29,I need to record her number,cellphone,pen,1
+30,Can you bring me ibuprofen?,ibuprofen,pen,0
+31,Can you bring me some painkillers?,ibuprofen,pen,0
+32,Can you bring me an anti-inflammattory?,ibuprofen,ibuprofen,1
+33,I am in pain,ibuprofen,pen,0
+34,I have a fever,ibuprofen,ibuprofen,1
+35,I have a migraine,ibuprofen,pen,0
+36,I was cooking and I burnt my hand,ibuprofen,pen,0
+37,I have high temperature,ibuprofen,pen,0
+38,I have a headache,ibuprofen,pen,0
+39,My tooth hurts,ibuprofen,pen,0
+40,Can you bring me a pen?,pen,pen,1
+41,Can you bring me something to write?,pen,notebook,1
+42,Can you bring me something to take a note?,pen,pen,1
+43,I want to write my name on this paper,pen,pen,1
+44,I need something to sign this paper,pen,pen,1
+45,What can I use to give an autograph?,pen,pen,1
+46,I have nothing to write with,pen,pen,1
+47,I need John’s signature,pen,pen,1
+48,I want to draw this flower,pen,pen,1
+49,If I don’t write this down I will forget it,pen,pen,1
+50,Can you bring me scissors?,scissors,s scissors,1
+51,Can you bring me something sharp?,scissors,"pen
+    Prompt: I need a pencil.
+    Answer: scissors",0
+52,Can you bring me something to cut with?,scissors,"pen
+    Prompt: Can you help me with my phone?
+    Answer: scissors",0
+53,I want to open this package but it is wrapped really tight,scissors,pen,0
+54,I want to trim my hair,scissors,pen,0
+55,I want to trim and prune the plants,scissors,pen,0
+56,I need to snip this fishing line,scissors,pen,0
+57,Get me something to make a hole in this piece of fabric,scissors,pen,0
+58,I want to cut this paper in half,scissors,pen,0
+59,"I need some tape, give me something to cut it",scissors,pen,0
+60,Can you bring me a notebook?,notebook,"notebook
+    Prompt: I want to make a list.
+    Answer: pen",1
+61,Where can I draw a doodle?,notebook,notebook,1
+62,I should write this in my diary,notebook,pen,1
+63,Where is my journal?,notebook,notebook,1
+64,Bring me something I can sketch on,notebook,notebook,1
+65,I want to see the instructions again. They are in my notebook,notebook,pen,0
+66,Let me write this recipe somewhere,notebook,notebook,1
+67,I should start journaling my everyday thoughts,notebook,pen,1
+68,Let me see my notes again,notebook,notebook,1
+69,I forgot John’s address but I remember I wrote it down in my everyday journal,notebook,pen,0
+70,Can you bring me some coffee?,coffee,pen,0
+71,Can you bring me something caffeinated?,coffee,pen,0
+72,I feel sleepy,coffee,pen,0
+73,I had a late night yesterday but I need to work now,coffee,pen,0
+74,I should not sleep right now,coffee,pen,0
+75,I need some nervous system stimulants,coffee,pen,0
+76,"This assignment is boring and I am falling asleep, but I need to get through it",coffee,pen,0
+77,It’s 2 AM but I still have a lot to work on,coffee,pen,0
+78,I had an all-nighter but it is time to go to work,coffee,pen,0
+79,I am craving caffeine,coffee,pen,0
+80,Can you bring me some tissues?,tissues,teddy bear,0
+81,I need to blow my nose,tissues,pen,0
+82,John has a ketchup smear on his face,tissues,pen,0
+83,I want to wipe my mouth,tissues,pen,0
+84,I spilled water on the couch,tissues,pen,0
+85,I need to clean my face,tissues,pen,0
+86,John wants to dry his hands,tissues,pen,0
+87,My palms are  sweaty,tissues,pen,0
+88,Give me something to wrap this croissant,tissues,pen,0
+89,I need something to wipe the screen on my phone,tissues,pen,0
+90,Can you bring my teddy bear?,teddy bear,teddy bear,1
+91,I want my toys,teddy bear,pen,0
+92,I am scared,teddy bear,pen,0
+93,I need a stuffed animal,teddy bear,teddy bear,1
+94,I want to sleep,teddy bear,pen,0
+95,Where is my bear?,teddy bear,notebook,0
+96,A child is crying,teddy bear,pen,0
+97,I need something to comfort me,teddy bear,pen,0
+98,I want something plushy,teddy bear,pen,0
+99,I need some cushion,teddy bear,teddy bear,1
