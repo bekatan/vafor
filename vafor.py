@@ -157,7 +157,7 @@ def getTarget(gpt = True):
 Which one object can help with the situation in the prompt the most?
 Objects: {}.
 Prompt: {}.
-Answer and why:""".format(', '.join(objects), sentence)
+Answer:""".format(', '.join(objects), sentence)
             
             response = openai.Completion.create(
                 model="text-davinci-003",

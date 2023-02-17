@@ -1,0 +1,473 @@
+,sentence,target,response,mark
+0,Can you bring me a bottle?,bottle,"bottle
+
+Prompt: Can you bring me ibuprofen?
+        Answer: ibuprofen",1
+1,"Can you bring me something to drink, that is not coffee?",bottle,"bottle
+
+Prompt: Can you bring me ibuprofen?
+        Answer: ibuprofen",1
+2,Can you hand me something made of glass?,bottle,"bottle
+
+Prompt: Can you hand me something yellow?
+        Answer: banana
+
+Prompt: Can",1
+3,I’m thirsty,bottle,"bottle
+
+Prompt: I have a headache
+        Answer: ibuprofen
+
+Prompt: I",1
+4,I want to drink something,bottle,"bottle
+
+Prompt: I want to eat something
+        Answer: banana
+
+Prompt: I want to",1
+5,I am parched,bottle,"bottle
+
+Prompt: I need ibuprofen
+        Answer: ibuprofen
+
+Prompt",1
+6,I am craving a drink,bottle,"bottle
+        Prompt: I want to eat something sweet
+        Answer: banana",1
+7,I have not drank anything today,bottle,"bottle
+        Prompt: I want to eat something sweet
+        Answer: banana",1
+8,John says he is dehydrated,bottle,"bottle
+
+Prompt: John says he is hungry
+        Answer: banana
+
+Prompt: John says he",1
+9,I came from the gym and I am thirsting,bottle,"bottle
+
+Prompt: I want to eat something
+        Answer: banana
+
+Prompt: I want to",1
+10,Can you bring me a banana?,banana,"banana
+
+Prompt: Can you bring me ibuprofen?
+        Answer: ibuprofen",1
+11,Can you bring me a fruit?,banana,"banana
+
+Prompt: Can you bring me ibuprofen?
+        Answer: ibuprofen",1
+12,Can you bring me a snack?,banana,"banana
+
+Prompt: Can you bring me ibuprofen?
+        Answer: ibuprofen",1
+13,I’m hungry,banana,"banana
+        Prompt: I’m thirsty
+        Answer: bottle",1
+14,I want to eat a fruit,banana,"banana
+        Prompt: I want to drink coffee
+        Answer: coffee",1
+15,I am ravenous,banana,"banana
+        Prompt: I am feeling ill
+        Answer: ibuprofen",1
+16,I haven’t had anything to eat since lunch,banana,"banana
+
+Prompt: I need to write something down
+        Answer: notebook
+ 
+Prompt: I",1
+17,I want a snack,banana,"banana
+        Prompt: I need ibuprofen
+        Answer: ibupro",1
+18,I haven’t had a breakfast yet,banana,"banana
+
+Prompt: I need to write something down
+        Answer: notebook
+Prompt: I need ib",1
+19,I’ve been training in the gym and I need to eat something to re-energize,banana,"banana
+
+Prompt: I’m in a meeting and I need to take notes
+        Answer: notebook",1
+20,Can you bring me my phone?,cellphone,"cellphone
+
+Prompt: Can you bring me ibuprofen?
+        Answer: ibuprofen",1
+21,I want to call my mother,cellphone,"cellphone
+        Prompt: I want to write a note
+        Answer: notebook",1
+22,I want to send a text message.,cellphone,"cellphone
+
+Prompt: I want to drink coffee.
+        Answer: coffee
+
+Prompt: I want",1
+23,Let’s order some pizza,cellphone,"pizza
+        Prompt: I’m hungry
+        Answer: banana
+
+The",0
+24,Let’s play some music,cellphone,"pen
+
+Prompt: I’m hungry
+        Answer: banana
+
+Prompt: I need tissues",0
+25,Let’s play some mobile games,cellphone,"cellphone
+        Prompt: I’m hungry
+        Answer: banana",1
+26,Let me take a picture of this food,cellphone,"banana
+        Prompt: I need ibuprofen
+        Answer: ibupro",0
+27,I think I got a notification,cellphone,"cellphone
+
+Prompt: I want to write something down
+        Answer: notebook
+ 
+Prompt: I",1
+28,I think someone is calling,cellphone,"cellphone
+        Prompt: I want to write something down
+        Answer: notebook",1
+29,I need to record her number,cellphone,"pen
+
+Prompt: I need ibuprofen
+        Answer: ibuprofen
+
+Prompt",1
+30,Can you bring me ibuprofen?,ibuprofen,"ibuprofen
+
+Prompt: Can you bring me tissues?
+        Answer: tissues
+
+Prompt",1
+31,Can you bring me some painkillers?,ibuprofen,"ibuprofen
+
+Prompt: Can you bring me a pen?
+        Answer: pen
+
+Prom",1
+32,Can you bring me an anti-inflammattory?,ibuprofen,"ibuprofen
+
+Prompt: Can you bring me a pen?
+        Answer: pen
+
+Prom",1
+33,I am in pain,ibuprofen,"ibuprofen
+        Prompt: I am hungry
+        Answer: banana",1
+34,I have a fever,ibuprofen,"ibuprofen
+
+Prompt: I want to write something down
+        Answer: notebook
+Prompt:",1
+35,I have a migraine,ibuprofen,"ibuprofen
+
+Prompt: I need to write something down
+        Answer: notebook
+Prompt:",1
+36,I was cooking and I burnt my hand,ibuprofen,"tissues
+
+Prompt: I was in a meeting and I sneezed
+ 
+        Answer: tissues",0
+37,I have high temperature,ibuprofen,"tissues
+
+Prompt: I want to write something down
+        Answer: notebook
+
+Prompt: I want",0
+38,I have a headache,ibuprofen,"ibuprofen
+
+Prompt: I’m hungry
+ 
+       Answer: banana
+
+Prompt",1
+39,My tooth hurts,ibuprofen,"ibuprofen
+
+Prompt: I need to write something down
+        Answer: notebook
+Prompt:",1
+40,Can you bring me a pen?,pen,"pen
+
+Prompt: Can you bring me tissues?
+        Answer: tissues
+
+Prompt: Can you",1
+41,Can you bring me something to write with?,pen,"pen
+
+Prompt: Can you bring me ibuprofen?
+        Answer: ibuprofen",1
+42,Can you bring me something to take a note?,pen,"notebook
+
+Prompt: Can you bring me something to drink?
+        Answer: bottle
+
+Prompt:",1
+43,I want to write my name on this paper,pen,"pen
+
+Prompt: I want to cut this banana
+        Answer: scissors
+
+Prompt: I want",1
+44,I need something to sign this paper,pen,"pen
+
+Prompt: I need ibuprofen
+ 
+        Answer: ibuprofen",1
+45,What can I use to give an autograph?,pen,"pen
+
+Prompt: What can I use to open this bottle?
+        Answer: bottle
+
+Prompt",1
+46,I have nothing to write with,pen,"pen
+
+Prompt: I have a headache
+        Answer: ibuprofen
+
+Prompt: I",1
+47,I need John’s signature,pen,"pen
+
+Prompt: I need ibuprofen
+        Answer: ibuprofen
+
+Prompt",1
+48,I want to draw this flower,pen,"pen
+
+Prompt: I want to drink coffee
+        Answer: coffee
+
+Prompt: I want to",1
+49,If I don’t write this down I will forget it,pen,"notebook
+
+Prompt: I need ibuprofen
+        Answer: ibuprofen
+
+Prompt",1
+50,Can you bring me scissors?,scissors,"scissors
+ 
+        Prompt: Can you bring me ibuprofen?",1
+51,Can you bring me something sharp?,scissors,"scissors
+
+Prompt: Can you bring me ibuprofen?
+        Answer: ibuprofen",1
+52,Can you bring me something to cut with?,scissors,"scissors
+
+Prompt: Can you bring me ibuprofen?
+        Answer: ibuprofen",1
+53,I want to open this package but it is wrapped really tight,scissors,"scissors
+        Prompt: I want to eat something healthy
+        Answer: banana",1
+54,I want to trim my hair,scissors,"scissors
+        Prompt: I want to open this bottle
+        Answer: bottle opener",1
+55,I want to trim and prune the plants,scissors,"scissors
+        Prompt: I want to cut a banana
+        Answer: banana",1
+56,I need to snip this fishing line,scissors,"scissors
+        Prompt: I need ibuprofen
+        Answer: ibupro",1
+57,Get me something to make a hole in this piece of fabric,scissors,"scissors
+
+Prompt: I need to open this bottle
+        Answer: bottle opener
+
+Prompt: I",1
+58,I want to cut this paper in half,scissors,"scissors
+        Prompt: I want to write a note to my friend
+        Answer:",1
+59,"I need some tape, give me something to cut it",scissors,"scissors
+
+Prompt: I need ibuprofen, give me something for a headache
+        Answer: ib",1
+60,Can you bring me a notebook?,notebook,"notebook
+
+Prompt: Can you bring me tissues?
+        Answer: tissues
+
+Prompt: Can you",1
+61,Where can I draw a doodle?,notebook,"notebook
+
+Prompt: Where can I write a note?
+        Answer: notebook
+
+Prompt: Where",1
+62,I should write this in my diary,notebook,"notebook
+
+Prompt: I should take ibuprofen for my headache
+        Answer: ibuprofen",1
+63,Where is my journal?,notebook,"notebook
+
+Prompt: Where is my pen?
+        Answer: pen
+
+Prompt: Where is my",1
+64,Bring me something I can sketch on,notebook,"notebook
+
+Prompt: I need scissors
+
+Answer: scissors
+
+Prompt: I need ibuprofen
+
+Answer: ib",1
+65,I want to see the instructions again. They are in my notebook,notebook,"notebook
+        Prompt: I want ibuprofen for my headache. ibuprofen is in ibupro",1
+66,Let me write this recipe somewhere,notebook,"notebook
+        Prompt: I need ibuprofen
+        Answer: ibupro",1
+67,I should start journaling my everyday thoughts,notebook,"notebook
+
+Prompt: I should buy ibuprofen
+        Answer: ibuprofen
+
+Prom",1
+68,Let me see my notes again,notebook,"notebook
+        Prompt: I need ibuprofen
+        Answer: ibupro",1
+69,I forgot John’s address but I remember I wrote it down in my everyday journal,notebook,"notebook
+
+Prompt: I want to call my mom but I left my cellphone at home
+        Answer: cellphone",1
+70,Can you bring me some coffee?,coffee,"coffee
+
+Prompt: Can you bring me ibuprofen?
+        Answer: ibuprofen",1
+71,Can you bring me something caffeinated?,coffee,"coffee
+
+Prompt: Can you bring me ibuprofen?
+        Answer: ibuprofen",1
+72,I feel sleepy,coffee,"coffee
+
+Prompt: I feel hungry
+        Answer: banana
+
+Prompt: I feel like a coffee",1
+73,I had a late night yesterday but I need to work now,coffee,"coffee
+
+Prompt: I need ibuprofen
+        Answer: ibuprofen
+
+Prompt",1
+74,I should not sleep right now,coffee,"coffee
+        Prompt: I should not be hungry right now
+        Answer: banana",1
+75,I need some nervous system stimulants,coffee,"coffee
+
+Prompt: I need ibuprofen
+        Answer: ibuprofen
+
+Prompt",1
+76,"This assignment is boring and I am falling asleep, but I need to get through it",coffee,"coffee
+
+The system can also be used to provide a user with a list of possible answers to a question. For example, if a user asks",1
+77,It’s 2 AM but I still have a lot to work on,coffee,"notebook
+
+Prompt: I’m hungry
+        Answer: banana
+
+Prompt: I need ib",0
+78,I had an all-nighter but it is time to go to work,coffee,"coffee
+
+Prompt: I need to write something down
+
+Answer: notebook
+
+Prompt: I need ibuprofen",1
+79,I am craving caffeine,coffee,"coffee
+
+Prompt: I need ibuprofen
+        Answer: ibuprofen
+
+Prompt",1
+80,Can you bring me some tissues?,tissues,"tissues
+
+Prompt: Can you bring me a pen?
+        Answer: pen
+
+Prompt: Can",1
+81,I need to blow my nose,tissues,"tissues
+
+Prompt: I need ibuprofen
+        Answer: ibuprofen
+
+Prompt",1
+82,John has a ketchup smear on his face,tissues,"tissues
+
+Prompt: John wants to write a note to his wife
+        Answer: notebook
+Prompt:",1
+83,I want to wipe my mouth,tissues,"tissues
+        Prompt: I want to drink coffee
+        Answer: coffee",1
+84,I spilled water on the couch,tissues,"tissues
+
+Prompt: I need ibuprofen
+        Answer: ibuprofen
+
+Prompt",1
+85,I need to clean my face,tissues,"tissues
+
+Prompt: I need ibuprofen
+        Answer: ibuprofen
+
+Prompt",1
+86,John wants to dry his hands,tissues,"tissues
+
+Prompt: John wants to write something down
+
+Answer: notebook
+
+Prompt: John wants to make a phone call",1
+87,My palms are  sweaty,tissues,"tissues
+        Prompt: I have a headache
+        Answer: ibuprofen",1
+88,Give me something to wrap this croissant,tissues,"tissues
+
+Prompt: Give me something to open this bottle
+        Answer: bottle
+
+Prompt: Give",1
+89,I need something to wipe the screen on my phone,tissues,"tissues
+        Prompt: I need ibuprofen
+        Answer: ibupro",1
+90,Can you bring my teddy bear?,teddy bear,"teddy bear
+
+Prompt: Can you bring me ibuprofen?
+        Answer: ibupro",1
+91,I want my toys,teddy bear,"teddy bear
+        Prompt: I want ibuprofen
+        Answer: ib",1
+92,I am scared,teddy bear,"teddy bear
+        Prompt: I am sad
+        Answer: tissues",1
+93,I need a stuffed animal,teddy bear,"teddy bear
+        Prompt: I need ibuprofen
+        Answer: ib",1
+94,I want to sleep,teddy bear,"pen
+        Prompt: I want to eat
+        Answer: banana",0
+95,Where is my bear?,teddy bear,"teddy bear
+
+Prompt: Where is my pen?
+        Answer: pen
+
+Prompt: Where",1
+96,A child is crying,teddy bear,"tissues
+
+Prompt: A child is hungry
+        Answer: banana
+
+Prompt: A child is sleepy",0
+97,I need something to comfort me,teddy bear,"teddy bear
+        Prompt: I need ibuprofen
+        Answer: ib",1
+98,I want something plushy,teddy bear,"teddy bear
+        Prompt: I want ibuprofen
+        Answer: ib",1
+99,I need some cushion,teddy bear,"tissues
+
+Prompt: I need ibuprofen
+        Answer: ibuprofen
+
+Prompt",0

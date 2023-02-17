@@ -1,0 +1,20 @@
+{"prompt":"Objects: bottle, banana, cellphone, ibuprofen, pen, scissors, notebook, coffee, tissues, teddy bear. \nPrompt: Let’s drink.\nAnswer:","completion":" bottle\n"}
+{"prompt":"Objects: bottle, banana, cellphone, ibuprofen, pen, scissors, notebook, coffee, tissues, teddy bear. \nPrompt: My mouth is dry.\nAnswer:","completion":" bottle\n"}
+{"prompt":"Objects: bottle, banana, cellphone, ibuprofen, pen, scissors, notebook, coffee, tissues, teddy bear. \nPrompt: Let’s eat something sweet.\nAnswer:","completion":" banana\n"}
+{"prompt":"Objects: bottle, banana, cellphone, ibuprofen, pen, scissors, notebook, coffee, tissues, teddy bear. \nPrompt: I deserve a treat after all this work.\nAnswer:","completion":" banana\n"}
+{"prompt":"Objects: bottle, banana, cellphone, ibuprofen, pen, scissors, notebook, coffee, tissues, teddy bear. \nPrompt: Let’s call Mom.\nAnswer:","completion":" cellphone\n"}
+{"prompt":"Objects: bottle, banana, cellphone, ibuprofen, pen, scissors, notebook, coffee, tissues, teddy bear. \nPrompt: I should set an alarm.\nAnswer:","completion":" cellphone\n"}
+{"prompt":"Objects: bottle, banana, cellphone, ibuprofen, pen, scissors, notebook, coffee, tissues, teddy bear. \nPrompt: I need some medicine.\nAnswer:","completion":" ibuprofen\n"}
+{"prompt":"Objects: bottle, banana, cellphone, ibuprofen, pen, scissors, notebook, coffee, tissues, teddy bear. \nPrompt: My shoulder hurts after that accident.\nAnswer:","completion":" ibuprofen\n"}
+{"prompt":"Objects: bottle, banana, cellphone, ibuprofen, pen, scissors, notebook, coffee, tissues, teddy bear. \nPrompt: Let’s sign this deal.\nAnswer:","completion":" pen\n"}
+{"prompt":"Objects: bottle, banana, cellphone, ibuprofen, pen, scissors, notebook, coffee, tissues, teddy bear. \nPrompt: I want to write my PIN on my palm so I don’t forget it.\nAnswer:","completion":" pen\n"}
+{"prompt":"Objects: bottle, banana, cellphone, ibuprofen, pen, scissors, notebook, coffee, tissues, teddy bear. \nPrompt: I want to cut this tape.\nAnswer:","completion":" scissors\n"}
+{"prompt":"Objects: bottle, banana, cellphone, ibuprofen, pen, scissors, notebook, coffee, tissues, teddy bear. \nPrompt: I need to cut this bandage.\nAnswer:","completion":" scissors\n"}
+{"prompt":"Objects: bottle, banana, cellphone, ibuprofen, pen, scissors, notebook, coffee, tissues, teddy bear. \nPrompt: Fetch me my diary.\nAnswer:","completion":" notebook\n"}
+{"prompt":"Objects: bottle, banana, cellphone, ibuprofen, pen, scissors, notebook, coffee, tissues, teddy bear. \nPrompt: I want to write a poem.\nAnswer:","completion":" notebook\n"}
+{"prompt":"Objects: bottle, banana, cellphone, ibuprofen, pen, scissors, notebook, coffee, tissues, teddy bear. \nPrompt: I want my morning drink.\nAnswer:","completion":" coffee\n"}
+{"prompt":"Objects: bottle, banana, cellphone, ibuprofen, pen, scissors, notebook, coffee, tissues, teddy bear. \nPrompt: I am feeling drowsy.\nAnswer:","completion":" coffee\n"}
+{"prompt":"Objects: bottle, banana, cellphone, ibuprofen, pen, scissors, notebook, coffee, tissues, teddy bear. \nPrompt: Give me some paper towels.\nAnswer:","completion":" tissues\n"}
+{"prompt":"Objects: bottle, banana, cellphone, ibuprofen, pen, scissors, notebook, coffee, tissues, teddy bear. \nPrompt: My hands are covered in gel.\nAnswer:","completion":" tissues\n"}
+{"prompt":"Objects: bottle, banana, cellphone, ibuprofen, pen, scissors, notebook, coffee, tissues, teddy bear. \nPrompt: Bobby wants his toy.\nAnswer:","completion":" teddy bear\n"}
+{"prompt":"Objects: bottle, banana, cellphone, ibuprofen, pen, scissors, notebook, coffee, tissues, teddy bear. \nPrompt: I want something fuzzy and cuddly.\nAnswer:","completion":" teddy bear\n"}

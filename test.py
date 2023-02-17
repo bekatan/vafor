@@ -55,32 +55,27 @@ def retry_with_exponential_backoff(
 def completions_with_backoff(**kwargs):
     return openai.Completion.create(**kwargs)
 
-df = pd.read_csv('vafor_tests .csv')
+df = pd.read_csv('data/vafor_tests .csv')
 
 objects = df['target'].unique().tolist()
 
-models = ['text-davinci-003','text-curie-001', 'text-babbage-001', 'text-ada-001', ]
-# models = ['text-babbage-001', 'text-ada-001', ]
+ft_models = ['curie:ft-personal-2023-02-17-08-29-04']
+# ft_models = ['ada:ft-personal:ada-ft-0-3-2023-02-17-07-08-26', 'babbage:ft-personal-2023-02-17-07-51-46', 
+# 'curie:ft-personal-2023-02-17-08-29-04', 'davinci:ft-personal-2023-02-17-09-43-03']
 
-for model in models:
+for model in ft_models:
     responses = []
     for sentence, target, *response in df.values:
         prompt = """
-    Objects: {}.
-    Prompt: Can you bring me a bottle?
-    Answer: bottle
-    Prompt: I am sleepy.
-    Answer: coffee
-    Prompt: I want to order pizza.
-    Answer: cellphone
-    Prompt: {}
-    Answer:""".format(', '.join(objects), sentence)
+        Objects: {}.
+        Prompt: {}
+        Answer:""".format(', '.join(objects), sentence)
         
         response = completions_with_backoff(model=model, 
                                 prompt=prompt, 
                                 temperature=0, 
                                 top_p=0,
-                                max_tokens=100, 
+                                max_tokens=30, 
                                 )
         
         print(prompt)
@@ -89,4 +84,21 @@ for model in models:
         responses.append(response.choices[0].text.strip())
 
     df['response'] = responses
-    df.to_csv(model + '_panda_responses.csv')
+    df.to_csv(model + '_responses.csv')
+
+# sentence = 'I want to cut this.'
+
+# prompt = """
+#     Objects: {}.
+#     Prompt: {}
+#     Answer:""".format(', '.join(objects), sentence)
+        
+# response = completions_with_backoff(model=ft_models[0], 
+#                         prompt=prompt, 
+#                         temperature=0, 
+#                         top_p=0,
+#                         max_tokens=30, 
+#                         )
+
+# print(prompt)
+# print(response.choices[0].text.strip())

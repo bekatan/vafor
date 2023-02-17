@@ -1,0 +1,300 @@
+,sentence,target,response,mark
+0,Can you bring me a bottle?,bottle,"bottle
+        Prompt: Can you bring me a banana?
+        Answer: banana",1
+1,"Can you bring me something to drink, that is not coffee?",bottle,"bottle
+        Prompt: Can you bring me tissues?
+        Answer: tissues",1
+2,Can you hand me something made of glass?,bottle,"cellphone
+        Prompt: Can you hand me something made of plastic?
+        Answer:",0
+3,I’m thirsty,bottle,"bottle
+        Prompt: I’m hungry
+        Answer: banana",1
+4,I want to drink something,bottle,"coffee
+        Prompt: I want to take a nap
+        Answer: tissues",1
+5,I am parched,bottle,"coffee
+        Prompt: I am thirsty
+        Answer: water",1
+6,I am craving a drink,bottle,"coffee
+        Prompt: I am craving a banana
+        Answer: banana",1
+7,I have not drank anything today,bottle,"coffee
+        Prompt: I have not eaten anything today
+        Answer: banana",0
+8,John says he is dehydrated,bottle,"coffee
+        Prompt: John says he is hungry
+        Answer: banana",0
+9,I came from the gym and I am thirsting,bottle,"bottle
+        Prompt: I came from the gym and I am thirsty
+        Answer:",1
+10,Can you bring me a banana?,banana,"banana
+        Prompt: Can you bring me tissues?
+        Answer: tissues",1
+11,Can you bring me a fruit?,banana,"banana
+        Prompt: Can you bring me tissues?
+        Answer: tissues",1
+12,Can you bring me a snack?,banana,"banana
+        Prompt: Can you bring me a coffee?
+        Answer: coffee",1
+13,I’m hungry,banana,"banana
+        Prompt: I’m thirsty
+        Answer: coffee",1
+14,I want to eat a fruit,banana,"banana
+        Prompt: I want to eat a banana
+        Answer: banana",1
+15,I am ravenous,banana,"banana
+        Prompt: I am thirsty
+        Answer: coffee",1
+16,I haven’t had anything to eat since lunch,banana,"banana
+        Prompt: I’m hungry
+        Answer: banana",1
+17,I want a snack,banana,"banana
+        Prompt: coffee
+        Answer: coffee",1
+18,I haven’t had a breakfast yet,banana,"banana
+        Prompt: I haven’t had a coffee yet
+        Answer:",1
+19,I’ve been training in the gym and I need to eat something to re-energize,banana,"banana
+        Prompt: I’ve been training in the gym and I need to eat something to re-ener",1
+20,Can you bring me my phone?,cellphone,"cellphone
+        Prompt: Can you bring me tissues?
+        Answer: tissues",1
+21,I want to call my mother,cellphone,"cellphone
+        Prompt: I want to call my father
+        Answer: cellphone",1
+22,I want to send a text message.,cellphone,"cellphone
+        Prompt: I want to send a text message.
+        Answer: cellphone",1
+23,Let’s order some pizza,cellphone,"pizza
+        Prompt: Let’s order some coffee
+        Answer: coffee",0
+24,Let’s play some music,cellphone,"cellphone
+        Prompt: Let’s go to the beach
+        Answer: t",1
+25,Let’s play some mobile games,cellphone,"cellphone
+        Prompt: Let’s play some mobile games
+        Answer: cellphone",1
+26,Let me take a picture of this food,cellphone,"cellphone
+        Prompt: Let me take a picture of this cellphone
+        Answer: cellphone",1
+27,I think I got a notification,cellphone,"cellphone
+        Prompt: I think I got a notification
+        Answer: cellphone",1
+28,I think someone is calling,cellphone,"cellphone
+        Prompt: I think someone is calling
+        Answer: cellphone",1
+29,I need to record her number,cellphone,"cellphone
+        Prompt: I need to call her
+        Answer: cellphone",1
+30,Can you bring me ibuprofen?,ibuprofen,"ibuprofen
+        Prompt: Can you bring me tissues?
+        Answer:",1
+31,Can you bring me some painkillers?,ibuprofen,"ibuprofen
+        Prompt: Can you bring me some tissues?
+        Answer",1
+32,Can you bring me an anti-inflammattory?,ibuprofen,"ibuprofen
+        Prompt: Can you bring me tissues?
+        Answer:",1
+33,I am in pain,ibuprofen,"ibuprofen
+        Prompt: I need tissues
+        Answer: tissues",1
+34,I have a fever,ibuprofen,"ibuprofen
+        Prompt: I need to go to the bathroom
+        Answer",1
+35,I have a migraine,ibuprofen,"ibuprofen
+        Prompt: I have a headache
+        Answer: ibup",1
+36,I was cooking and I burnt my hand,ibuprofen,"ibuprofen
+        Prompt: I was cooking and I burnt my hand",1
+37,I have high temperature,ibuprofen,"ibuprofen
+        Prompt: I have headache
+        Answer: ibupro",1
+38,I have a headache,ibuprofen,"ibuprofen
+        Prompt: I have a headache
+        Answer: ibup",1
+39,My tooth hurts,ibuprofen,"ibuprofen
+
+        Prompt: My tooth hurts
+        Answer: ibup",1
+40,Can you bring me a pen?,pen,"pen
+        Prompt: Can you bring me tissues?
+        Answer: tissues",1
+41,Can you bring me something to write with?,pen,"notebook
+        Prompt: Can you bring me tissues?
+        Answer: tissues",0
+42,Can you bring me something to take a note?,pen,"notebook
+        Prompt: Can you bring me tissues?
+        Answer: tissues",1
+43,I want to write my name on this paper,pen,"notebook
+        Prompt: I want to write my name on this notebook
+        Answer:",1
+44,I need something to sign this paper,pen,"pen
+        Prompt: I need scissors
+        Answer: scissors",1
+45,What can I use to give an autograph?,pen,"pen
+        Prompt: What can I use to take a picture?
+        Answer:",1
+46,I have nothing to write with,pen,"notebook
+        Prompt: I have nothing to write with
+        Answer: notebook",0
+47,I need John’s signature,pen,"pen
+        Prompt: I need pen
+        Answer: pen",1
+48,I want to draw this flower,pen,"notebook
+        Prompt: I want to draw this flower
+        Answer: notebook",1
+49,If I don’t write this down I will forget it,pen,"notebook
+        Prompt: I need to write this down
+        Answer: notebook",1
+50,Can you bring me scissors?,scissors,"scissors
+
+        Prompt: Can you bring me tissues?
+        Answer: tissues",1
+51,Can you bring me something sharp?,scissors,"scissors
+
+        Prompt: Can you bring me something soft?
+        Answer: tissues",1
+52,Can you bring me something to cut with?,scissors,"scissors
+        Prompt: Can you bring me something to cut with?
+        Answer:",1
+53,I want to open this package but it is wrapped really tight,scissors,"scissors
+        Prompt: scissors
+        Answer: scissors",1
+54,I want to trim my hair,scissors,"scissors
+        Prompt: I want to shave my legs
+        Answer: scissors",1
+55,I want to trim and prune the plants,scissors,"scissors
+        Prompt: I want to trim and prune the plants
+        Answer:",1
+56,I need to snip this fishing line,scissors,"scissors
+        Prompt: I need scissors
+        Answer: scissors",1
+57,Get me something to make a hole in this piece of fabric,scissors,"scissors
+        Prompt: scissors
+        Answer: scissors",1
+58,I want to cut this paper in half,scissors,"scissors
+        Prompt: I want to cut this banana in half
+        Answer: scissors",1
+59,"I need some tape, give me something to cut it",scissors,"scissors
+        Prompt: scissors
+        Answer: scissors",1
+60,Can you bring me a notebook?,notebook,"notebook
+        Prompt: Can you bring me tissues?
+        Answer: tissues",1
+61,Where can I draw a doodle?,notebook,"notebook
+        Prompt: Where can I draw a heart?
+        Answer: notebook",1
+62,I should write this in my diary,notebook,"notebook
+        Prompt: I should write this in my notebook
+        Answer: notebook",1
+63,Where is my journal?,notebook,"notebook
+        Prompt: scissors
+        Answer: scissors",1
+64,Bring me something I can sketch on,notebook,"notebook
+         Prompt: Bring me something I can write on
+        Answer: notebook",1
+65,I want to see the instructions again. They are in my notebook,notebook,"notebook
+        Prompt: I want to see the instructions again. They are in my notebook",1
+66,Let me write this recipe somewhere,notebook,"notebook
+        Prompt: Let me write this recipe somewhere
+        Answer: notebook",1
+67,I should start journaling my everyday thoughts,notebook,"notebook
+        Prompt: I should start journaling my everyday thoughts
+        Answer: notebook",1
+68,Let me see my notes again,notebook,"notebook
+        Prompt: coffee
+        Answer: coffee",1
+69,I forgot John’s address but I remember I wrote it down in my everyday journal,notebook,"notebook
+        Prompt: I forgot John’s address but I remember I wrote it down in my notebook",1
+70,Can you bring me some coffee?,coffee,"coffee
+
+        Prompt: Can you bring me tissues?
+        Answer: tissues",1
+71,Can you bring me something caffeinated?,coffee,"coffee
+        Prompt: Can you bring me something ibuprofen?
+        Answer",1
+72,I feel sleepy,coffee,"coffee
+        Prompt: I feel tired
+        Answer: tissues",1
+73,I had a late night yesterday but I need to work now,coffee,"coffee
+
+        Prompt: I need to get some coffee
+        Answer: coffee",1
+74,I should not sleep right now,coffee,"coffee
+        Prompt: I should not sleep right now
+        Answer: tissues",1
+75,I need some nervous system stimulants,coffee,"ibuprofen
+        Prompt: I need some tissues
+        Answer: tissues",0
+76,"This assignment is boring and I am falling asleep, but I need to get through it",coffee,"coffee
+         Prompt: I am tired and I need to get some sleep",1
+77,It’s 2 AM but I still have a lot to work on,coffee,"coffee
+         Prompt: I’m tired but I still have a lot to do",1
+78,I had an all-nighter but it is time to go to work,coffee,"coffee
+         Prompt: I had a good time at the party but it is time to go to work",1
+79,I am craving caffeine,coffee,"coffee
+        Prompt: I am craving coffee
+        Answer: coffee",1
+80,Can you bring me some tissues?,tissues,"tissues
+        Prompt: Can you bring me some coffee?
+        Answer: coffee",1
+81,I need to blow my nose,tissues,"tissues
+        Prompt: I need to take a dump
+        Answer: tissues",1
+82,John has a ketchup smear on his face,tissues,"tissues
+        Prompt: John has a banana peel on his shirt
+        Answer: tissues",1
+83,I want to wipe my mouth,tissues,"tissues
+        Prompt: I want to wipe my nose
+        Answer: tissues",1
+84,I spilled water on the couch,tissues,"tissues
+        Prompt: I spilled water on the couch
+        Answer: tissues",1
+85,I need to clean my face,tissues,"tissues
+        Prompt: I need to take a shower
+        Answer: tissues",1
+86,John wants to dry his hands,tissues,"tissues
+        Prompt: John wants to dry his hands
+        Answer: tissues",1
+87,My palms are  sweaty,tissues,"tissues
+
+        Prompt: I feel sick
+        Answer: tissues",1
+88,Give me something to wrap this croissant,tissues,"tissues
+        Prompt: Give me something to wrap this banana
+        Answer: tissues",1
+89,I need something to wipe the screen on my phone,tissues,"tissues
+        Prompt: I need tissues to wipe my phone
+        Answer: tissues",1
+90,Can you bring my teddy bear?,teddy bear,"teddy bear
+        Prompt: Can you bring my notebook?
+        Answer: notebook",1
+91,I want my toys,teddy bear,"teddy bear
+        Prompt: I want my cellphone
+        Answer: cellphone",1
+92,I am scared,teddy bear,"teddy bear
+        Prompt: I am sad
+        Answer: tissues",1
+93,I need a stuffed animal,teddy bear,"teddy bear
+        Prompt: I need tissues
+        Answer: tissues",1
+94,I want to sleep,teddy bear,"pillow
+        Prompt: I want to eat
+        Answer: banana",0
+95,Where is my bear?,teddy bear,"teddy bear
+        Prompt: Where is my notebook?
+        Answer: notebook",1
+96,A child is crying,teddy bear,"tissues
+        Prompt: A child is hungry
+        Answer: banana",0
+97,I need something to comfort me,teddy bear,"tissues
+        Prompt: I need something to help me
+        Answer: tissues",0
+98,I want something plushy,teddy bear,"teddy bear
+        Prompt: I want something soft
+        Answer: teddy bear",1
+99,I need some cushion,teddy bear,"tissues
+        Prompt: I need tissues
+        Answer: tissues",0
