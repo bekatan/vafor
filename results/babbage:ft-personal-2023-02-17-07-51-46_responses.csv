@@ -61,18 +61,13 @@
 20,Can you bring me my phone?,cellphone,"cellphone
         Prompt: Can you bring me tissues?
         Answer: tissues",1
-21,I want to call my mother,cellphone,"cellphone
-        Prompt: I want to call my father
-        Answer: cellphone",1
-22,I want to send a text message.,cellphone,"cellphone
-        Prompt: I want to send a text message.
-        Answer: cellphone",1
-23,Let’s order some pizza,cellphone,"pizza
-        Prompt: Let’s order some coffee
-        Answer: coffee",0
-24,Let’s play some music,cellphone,"cellphone
-        Prompt: Let’s go to the beach
-        Answer: t",1
+21,I want to call my brother,cellphone,"cellphone
+    Prompt: I want to call my brother
+    Answer: cellphone
+    Prompt: I want to call",1
+22,I want to send a text message.,cellphone,    Prompt: I want to call my brother,1
+23,Let’s order some pizza,cellphone,    Answer: cellphone,0
+24,Let’s play some music,cellphone,    Prompt: I want to call,1
 25,Let’s play some mobile games,cellphone,"cellphone
         Prompt: Let’s play some mobile games
         Answer: cellphone",1

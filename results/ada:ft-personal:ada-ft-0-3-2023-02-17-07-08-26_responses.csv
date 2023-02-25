@@ -20,7 +20,11 @@
 18,I haven’t had a breakfast yet,banana,banana,1
 19,I’ve been training in the gym and I need to eat something to re-energize,banana,banana,1
 20,Can you bring me my phone?,cellphone,cellphone,1
-21,I want to call my mother,cellphone,cellphone,1
+21,I want to call my brother,cellphone,"Cellphone 
+    Prompt: cellphone
+    Answer: cellphone
+    Prompt: cellphone
+    Answer: cellphone",1
 22,I want to send a text message.,cellphone,cellphone,1
 23,Let’s order some pizza,cellphone,pizza,0
 24,Let’s play some music,cellphone,mp3,0

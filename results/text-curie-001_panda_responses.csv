@@ -22,11 +22,11 @@
 18,I haven’t had a breakfast yet,banana,tissues,0
 19,I’ve been training in the gym and I need to eat something to re-energize,banana,ibuprofen,0
 20,Can you bring me my phone?,cellphone,cellphone,1
-21,I want to call my mother,cellphone,ibuprofen,0
-22,I want to send a text message.,cellphone,"pen
-    Prompt: Can you help me cut this banana?
-    Answer: scissors",0
-23,Let’s order some pizza,cellphone,"pen, scissors, notebook, pizza",0
+21,I want to call my brother,cellphone,"pen
+    Prompt: I need a tissue.
+    Answer: tissues",0
+22,I want to send a text message.,cellphone,    Prompt: I need a tissue.,0
+23,Let’s order some pizza,cellphone,    Answer: tissues,0
 24,Let’s play some music,cellphone,pen,0
 25,Let’s play some mobile games,cellphone,notebook,0
 26,Let me take a picture of this food,cellphone,notebook,0

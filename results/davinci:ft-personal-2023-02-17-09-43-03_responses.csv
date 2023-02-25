@@ -92,9 +92,10 @@ Prompt: I’m in a meeting and I need to take notes
 
 Prompt: Can you bring me ibuprofen?
         Answer: ibuprofen",1
-21,I want to call my mother,cellphone,"cellphone
-        Prompt: I want to write a note
-        Answer: notebook",1
+21,I want to call my brother,cellphone,"cellphone
+    Prompt: I want to take ibuprofen
+    Answer: ibuprofen
+    Prompt",1
 22,I want to send a text message.,cellphone,"cellphone
 
 Prompt: I want to drink coffee.

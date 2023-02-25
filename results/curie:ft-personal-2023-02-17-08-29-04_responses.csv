@@ -93,24 +93,16 @@ Prompt: Can you bring me my pen?
        Answer: pen
 
 Prompt: Can you",1
-21,I want to call my mother,cellphone,"cellphone
+21,I want to call my brother,cellphone,"cellphone
 
-Prompt: I need tissues
-Answer: tissues
-Prompt: I need ibuprofen
-Answer: ibuprofen",1
+    Objects: cellphone, ibuprofen, pen, scissors, notebook, coffee, tissues, teddy bear.",1
 22,I want to send a text message.,cellphone,"cellphone
 
 Prompt: I need to take my ibuprofen.
 Answer: ibuprofen
 
 Prompt: I need",1
-23,Let’s order some pizza,cellphone,"cellphone
-
-Prompt: I’m hungry
-        Answer: banana
-
-Prompt: I need a",1
+23,Let’s order some pizza,cellphone,"    Objects: cellphone, ibuprofen, pen, scissors, notebook, coffee, tissues, teddy bear.",1
 24,Let’s play some music,cellphone,"iPod
 
 Prompt: What",0
